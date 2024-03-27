@@ -1,3 +1,4 @@
+(*Opens actions prompt for an account*)
 let rec actions () = 
   print_endline ("Would you like to add funds, deduct funds, or visualize data?");
   let user_input = read_line() in
