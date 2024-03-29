@@ -1,0 +1,27 @@
+---
+# Members of our group.
+group:
+  - name: Vail Chen
+    netid: vac68
+  - name: Khoa Nguyeh
+    netid: ktn9
+  - name: Kyle Chu
+    netid: kgc42
+# Our PM.
+pm:
+  name: Lawrence Daniels
+  netid: lwd38
+# We'd like our gallery entry to be public.
+publish: true
+# Pithy title
+title: "I'm Two Weeks In and Out of BRBs"
+# Cornell Github link, but public gallery viewers won't be able to see it.
+git-repo: "https://github.coecis.cornell.edu/ktn9/cs3110_final_project"
+# We don't have a demo screencast
+demo-video-url: ""
+# Our short, attention-grabbing description of your project.
+desc: >
+  Our project is a comprehensive tool that helps users manage their BRB finances
+  with a simple and intuitive interface through the terminal. The program will 
+  offer features such as viewing transaction history, adding cash, and 
+  displaying more specific statistics about the user's transations. 
