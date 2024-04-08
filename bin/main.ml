@@ -1,4 +1,6 @@
 (* @author Khoa Nguyen (ktn9) Kyle Chu (kgc42) Vail Chen (vac68)*)
+open Cs3110_final_project.Login_db
+
 (*[actions] Opens actions prompt for an account*)
 let rec actions () =
   print_endline "Would you like to add funds, deduct funds, or visualize data?";
@@ -52,3 +54,11 @@ let rec startup () =
     startup ())
 
 let () = startup ()
+
+(* WORK IN PROGESS --- ACCOUNT DATABASE MANAGEMENT *)
+
+let () = let user_db = initialize_db () in
+
+         ignore (db_close user_db)
+
+(* ------------------------------------------------ *)
