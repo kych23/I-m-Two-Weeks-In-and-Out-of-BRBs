@@ -59,6 +59,6 @@ let () = startup ()
 
 let () = let user_db = initialize_db () in
 
-         ignore (db_close user_db)
+         ignore (Sqlite3.db_close user_db)
 
 (* ------------------------------------------------ *)

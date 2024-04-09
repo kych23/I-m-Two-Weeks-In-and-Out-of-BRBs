@@ -20,7 +20,12 @@ let create_users_table db =
   | _ -> Printf.printf "Unexpected error when creating users table\n"
 
 (**[add_user db username password brb_balance] inserts a user into [db] with [username], [password], [brb_balance]*)
-let add_user db username password brb_balance = failwith "TODO"
+let add_user db username password brb_balance =
+  db;
+  username;
+  password;
+  brb_balance;
+  failwith "TODO"
 
 (** [initialize_db] initializes and cretes the user table database and returns the database*)
 let initialize_db () =
