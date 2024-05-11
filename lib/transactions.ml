@@ -58,3 +58,7 @@ let filter_transactions_by_category transactions category =
 
 let sum_transactions transactions =
   List.fold_left (fun acc txn -> acc +. txn.amount) 0.0 transactions
+
+let get_txn_date transaction = transaction.date
+let get_txn_amt transaction = transaction.amount
+let get_txn_category transaction = transaction.category

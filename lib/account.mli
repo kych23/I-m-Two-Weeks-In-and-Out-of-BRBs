@@ -29,3 +29,15 @@ val update_account : account -> account list -> account list
 
 val delete_account : string -> account list -> account list
 (** Delete an account *)
+
+val get_acc_bal : account -> float
+(** [get_acc_bal account] returns the accounts balance *)
+
+val get_acc_username : account -> string
+(** [get_acc_username account] returns the accounts username *)
+
+val get_acc_password : account -> string
+(** [get_acc_password account] returns the accounts password *)
+
+val get_acc_txns_file : account -> string
+(** [get_acc_txns_file account] returns the accounts transactions file name *)
