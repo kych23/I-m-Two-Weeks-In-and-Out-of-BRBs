@@ -1,3 +1,6 @@
-To install the file, unzip the zip file. Then using the terminal, CD into 
-cs3110_final_project, and run dune build. Then to run the file, run 
+To run the program, install OCaml. If you do not have OCaml installed, 
+follow this link https://cs3110.github.io/textbook/chapters/preface/install.html. 
+If you do not have CSV installed on your local machine, then in the terminal run 
+opam install csv. To install the file, unzip the zip file. Then using the terminal, 
+CD into cs3110_final_project, and run dune build. Then to run the file, run 
 dune exec bin/main.exe
