@@ -1,6 +1,6 @@
 (* @author Khoa Nguyen (ktn9) Kyle Chu (kgc42) Vail Chen (vac68)*)
 open Cs3110_final_project.Account
-(* open Cs3110_final_project.Transactions *)
+open Cs3110_final_project.Transactions
 
 (* prompts the user to login/create their account *)
 let startup () =
@@ -28,7 +28,7 @@ let startup () =
       let new_account = create_account username password in
       let updated_accounts = add_account new_account accounts in
       save_accounts "data/users.csv" updated_accounts;
-      (* create_new_transaction_file username; *)
+      create_new_transaction_file username;
       print_endline "Account created successfully."
   | _ -> print_endline "Invalid option selected."
 
