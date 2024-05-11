@@ -1,5 +1,6 @@
 (* @author Khoa Nguyen (ktn9) Kyle Chu (kgc42) Vail Chen (vac68)*)
 type account = {
+  balance : float ref;
   username : string;
   password : string;
   txns_file : string;
@@ -9,7 +10,7 @@ type account = {
 exception AccountNotFound of string
 (** Exception raised when an account cannot be found *)
 
-val create_account : string -> string -> account
+val create_account : float -> string -> string -> account
 
 val load_accounts : string -> account list
 (** Load accounts from a CSV file *)
