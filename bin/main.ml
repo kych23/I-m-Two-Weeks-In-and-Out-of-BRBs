@@ -18,15 +18,13 @@ let manage_transactions username =
     let choice = read_line () in
     match choice with
     | "1" -> begin
-        print_endline "Enter the ID:";
-        let id = read_int () in
         print_endline "Enter the date (e.g., YYYY-MM-DD):";
         let date = read_line () in
-        print_endline "Enter the amount:";
+        print_endline "Enter the amount ($$.¢¢):";
         let amount = read_float () in
         print_endline "Enter the category:";
         let category = read_line () in
-        let new_transaction = create_transaction id date amount category in
+        let new_transaction = create_transaction date amount category in
         (try
            transactions := add_transaction new_transaction !transactions;
            print_endline "Transaction added successfully."
@@ -61,8 +59,11 @@ let login () =
       let accounts = load_accounts "data/users.csv" in
       try
         let account = find_account username accounts in
-        if account.password = password then print_endline "Login successful!"
-        else print_endline "Incorrect password."
+        if account.password <> password then print_endline "Incorrect password."
+        else begin
+          print_endline "Login successful!";
+          manage_transactions username
+        end
       with AccountNotFound msg -> print_endline ("Login failed: " ^ msg))
   | "2" ->
       print_endline "Choose a username:";

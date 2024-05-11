@@ -5,6 +5,8 @@ type transaction = {
   category : string;
 }
 
+let current_id = ref 0
+
 let ensure_directory_exists path =
   if not (Sys.file_exists path) then Unix.mkdir path 0o755
 
@@ -16,7 +18,9 @@ let create_and_save_csv_in_folder folder filename =
 let create_new_transaction_file username =
   create_and_save_csv_in_folder "data" (username ^ ".csv")
 
-let create_transaction id date amount category = { id; date; amount; category }
+let create_transaction date amount category =
+  current_id := !current_id + 1;
+  { id = !current_id; date; amount; category }
 
 let load_transactions filename =
   let table = Csv.load filename in
