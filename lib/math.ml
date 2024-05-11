@@ -12,10 +12,9 @@ let rec sum (lst : float list) =
   | h :: t -> h +. sum t
 
 (* [average lst] returns the average value of the entries in [lst] *)
-let rec average_list (lst : float list) : float =
-  let summation = sum lst in
-  let number = float_of_int (List.length lst) in
-  if summation = 0.0 then 0.0 else summation /. number
+(* let rec average_list (lst : float list) : float = let summation = sum lst in
+   let number = float_of_int (List.length lst) in if summation = 0.0 then 0.0
+   else summation /. number *)
 
 (* [average_over_days_list lst days] returns the division of the sum of the
    entries in [lst] divided by [days]*)
