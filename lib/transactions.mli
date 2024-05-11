@@ -1,7 +1,10 @@
 type transaction
 
 val create_new_transaction_file : string -> unit
-val create_transaction : int -> string -> float -> string -> transaction
+(** [create_new_transaction_file name] creates a new csv file in /data folder
+    with filename [user], associating with that user's transactions. *)
+
+val create_transaction : string -> float -> string -> transaction
 (** [crate_transaction id date amount category] is a new [transaction] record
     with [id] id on day [date] of the amount [amount] and category [category]. *)
 
@@ -14,4 +17,12 @@ val save_transactions : string -> transaction list -> unit
     [transactions] to the file [filename]. *)
 
 val add_transaction : transaction -> transaction list -> transaction list
-val delete_transaction : transaction -> transaction list -> transaction list
+val view_transactions : transaction list -> unit
+
+val filter_transactions_by_date :
+  transaction list -> string -> string -> transaction list
+
+val filter_transactions_by_category :
+  transaction list -> string -> transaction list
+
+val sum_transactions : transaction list -> float
