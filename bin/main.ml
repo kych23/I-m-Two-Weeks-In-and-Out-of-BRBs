@@ -46,8 +46,9 @@ let manage_transactions username =
   in
   options ()
 
-(** [login] prompts the user to login/create their account *)
-let login () =
+(** [start] starts the program and prompts the user to login/create their
+    account *)
+let start () =
   print_endline "Welcome to the BRB Saving System!";
   print_endline
     "Do you want to (1) Login or (2) Create a new account? Enter 1 or 2:";
@@ -84,4 +85,4 @@ let login () =
       manage_transactions username
   | _ -> print_endline "Invalid option selected."
 
-let () = login ()
+let () = start ()
