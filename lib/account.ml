@@ -1,6 +1,4 @@
-(* @author Khoa Nguyen (ktn9) Kyle Chu (kgc42) Vail Chen (vac68)*)
-(* open Transactions *)
-
+(* @author Khoa Nguyen (ktn9) Kyle Chu (kgc42) Vail Chen (vac68) *)
 type account = {
   username : string;
   password : string;
@@ -22,7 +20,9 @@ let load_accounts filename =
     table
 
 let save_accounts filename accounts =
-  let data = List.map (fun acc -> [ acc.username; acc.password ]) accounts in
+  let data =
+    List.map (fun acc -> [ acc.username; acc.password; acc.txns_file ]) accounts
+  in
   Csv.save filename data
 
 let find_account username accounts =

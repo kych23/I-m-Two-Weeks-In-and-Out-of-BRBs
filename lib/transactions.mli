@@ -1,5 +1,6 @@
 type transaction
 
+val create_new_transaction_file : string -> unit
 val create_transaction : int -> string -> float -> string -> transaction
 (** [crate_transaction id date amount category] is a new [transaction] record
     with [id] id on day [date] of the amount [amount] and category [category]. *)
