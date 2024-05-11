@@ -1,55 +1,34 @@
 (* @author Khoa Nguyen (ktn9) Kyle Chu (kgc42) Vail Chen (vac68)*)
+open Cs3110_final_project.Account
+(* open Cs3110_final_project.Transactions *)
 
-(*[actions] Opens actions prompt for an account*)
-let rec actions () =
-  print_endline "Would you like to add funds, deduct funds, or visualize data?";
-  let user_input = read_line () in
-  if user_input = "add funds" then
-    print_endline "How much would you like to add?"
-  else if user_input = "deduct funds" then
-    print_endline "How much would you like to deduct?"
-  else if user_input = "visualize data" then
-    print_endline "What would you like to visualize?"
-  else (
-    print_endline "Action not recognized, please try again";
-    actions ())
-
-(*[khoa] Opens password prompt for Khoas's account, can be abstracted*)
-let khoa () =
-  print_endline "Please enter your password";
-  let user_input = read_line () in
-  if user_input = "ktn9" then (
-    print_endline "Password accepted, hello Khoa";
-    actions ())
-  else print_endline "User or password is incorrect"
-
-(*[kyle] Opens password prompt for Kyle's account*)
-let kyle () =
-  print_endline "Please enter your password";
-  let user_input = read_line () in
-  if user_input = "kgc42" then (
-    print_endline "Password accepted, hello Kyle";
-    actions ())
-  else print_endline "User or password is incorrect"
-
-(*[vail] Opens password prompt for Vail's account*)
-let vail () =
-  print_endline "Please enter your password";
-  let user_input = read_line () in
-  if user_input = "vac68" then (
-    print_endline "Password accepted, hello Vail";
-    actions ())
-  else print_endline "User or password is incorrect"
-
-(*[startup] Starts the budget app*)
-let rec startup () =
-  print_endline "Welcome to Pi r Squared budgeting! Please enter your name";
-  let user_input = read_line () in
-  if user_input = "khoa" then khoa ()
-  else if user_input = "kyle" then kyle ()
-  else if user_input = "vail" then vail ()
-  else (
-    print_endline "User not recognized, please try again";
-    startup ())
+(* prompts the user to login/create their account *)
+let startup () =
+  print_endline "Welcome to the BRB Saving System!";
+  print_endline
+    "Do you want to (1) Login or (2) Create a new account? Enter 1 or 2:";
+  match read_line () with
+  | "1" -> (
+      print_endline "Enter your username:";
+      let username = read_line () in
+      print_endline "Enter your password:";
+      let password = read_line () in
+      let accounts = load_accounts "data/users.csv" in
+      try
+        let account = find_account username accounts in
+        if account.password = password then print_endline "Login successful!"
+        else print_endline "Incorrect password."
+      with AccountNotFound msg -> print_endline ("Login failed: " ^ msg))
+  | "2" ->
+      print_endline "Choose a username:";
+      let username = read_line () in
+      print_endline "Choose a password:";
+      let password = read_line () in
+      let accounts = load_accounts "data/users.csv" in
+      let new_account = create_account username password in
+      let updated_accounts = add_account new_account accounts in
+      save_accounts "data/users.csv" updated_accounts;
+      print_endline "Account created successfully."
+  | _ -> print_endline "Invalid option selected."
 
 let () = startup ()
