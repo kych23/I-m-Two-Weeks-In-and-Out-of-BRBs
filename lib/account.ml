@@ -1,5 +1,6 @@
 (* @author Khoa Nguyen (ktn9) Kyle Chu (kgc42) Vail Chen (vac68) *)
 type account = {
+  balance : float ref;
   username : string;
   password : string;
   txns_file : string;
@@ -8,20 +9,34 @@ type account = {
 exception AccountNotFound of string
 exception UsernameExists of string
 
-let create_account name pw =
-  { username = name; password = pw; txns_file = name }
+let create_account bal name pw =
+  { balance = ref bal; username = name; password = pw; txns_file = name }
 
 let load_accounts filename =
   let table = Csv.load filename in
   List.map
     (function
-      | [ username; password; txns_file ] -> { username; password; txns_file }
+      | [ balance; username; password; txns_file ] ->
+          {
+            balance = ref (float_of_string balance);
+            username;
+            password;
+            txns_file;
+          }
       | _ -> failwith "Malformed CSV data")
     table
 
 let save_accounts filename accounts =
   let data =
-    List.map (fun acc -> [ acc.username; acc.password; acc.txns_file ]) accounts
+    List.map
+      (fun acc ->
+        [
+          string_of_float !(acc.balance);
+          acc.username;
+          acc.password;
+          acc.txns_file;
+        ])
+      accounts
   in
   Csv.save filename data
 
