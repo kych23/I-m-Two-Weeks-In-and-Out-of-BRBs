@@ -2,6 +2,8 @@
 open Cs3110_final_project.Account
 open Cs3110_final_project.Transactions
 
+let k = print_endline "kasdf"
+
 (** [user_filepath username] returns filename data/[username].csv *)
 let user_filepath username = "data/" ^ username ^ ".csv"
 
