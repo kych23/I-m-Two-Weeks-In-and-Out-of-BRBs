@@ -65,3 +65,7 @@ let get_acc_bal account = !(account.balance)
 let get_acc_username account = account.username
 let get_acc_password account = account.password
 let get_acc_txns_file account = account.txns_file
+
+let clear_users_csv filename =
+  let out_channel = open_out filename in
+  close_out out_channel
