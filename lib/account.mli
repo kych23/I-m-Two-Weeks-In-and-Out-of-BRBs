@@ -49,3 +49,6 @@ val get_acc_password : account -> string
 
 val get_acc_txns_file : account -> string
 (** [get_acc_txns_file account] returns the accounts transactions file name *)
+
+val clear_users_csv : string -> unit
+(** [clear_users_csv filename] deletes all entries in the users.csv file *)
