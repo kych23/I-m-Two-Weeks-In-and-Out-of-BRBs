@@ -2,6 +2,8 @@
 open Cs3110_final_project.Account
 open Cs3110_final_project.Transactions
 
+let () = print_endline "khoa"
+
 (* prompts the user to login/create their account *)
 let startup () =
   print_endline "Welcome to the BRB Saving System!";
