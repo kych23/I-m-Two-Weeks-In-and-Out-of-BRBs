@@ -60,3 +60,8 @@ let update_account updated_acc accounts =
 
 let delete_account username accounts =
   List.filter (fun acc -> acc.username <> username) accounts
+
+let get_acc_bal account = !(account.balance)
+let get_acc_username account = account.username
+let get_acc_bal account = account.password
+let get_acc_txns_file account = account.txns_file

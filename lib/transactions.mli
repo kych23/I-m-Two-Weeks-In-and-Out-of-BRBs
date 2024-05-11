@@ -26,3 +26,12 @@ val filter_transactions_by_category :
   transaction list -> string -> transaction list
 
 val sum_transactions : transaction list -> float
+
+val get_txn_date : transaction -> string
+(** [get_txn_date transaction] returns the date of the transaction *)
+
+val get_txn_amt : transaction -> float
+(** [get_txn_amt transaction] returns the amount of the transaction *)
+
+val get_txn_category : transaction -> string
+(** [get_txn_category transaction] returns the category of the transaction *)
