@@ -14,7 +14,7 @@ let create_and_save_csv_in_folder folder filename =
   Csv.save path []
 
 let create_new_transaction_file username =
-  create_and_save_csv_in_folder "/data" username
+  create_and_save_csv_in_folder "data" (username ^ ".csv")
 
 let create_transaction id date amount category = { id; date; amount; category }
 
