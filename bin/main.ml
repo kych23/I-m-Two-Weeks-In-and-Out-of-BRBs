@@ -1,6 +1,6 @@
 (* @author Khoa Nguyen (ktn9) Kyle Chu (kgc42) Vail Chen (vac68)*)
 open Cs3110_final_project.Account
-(* open Cs3110_final_project.Transactions *)
+open Cs3110_final_project.Transactions
 
 (** [user_filepath username] returns filename data/[username].csv *)
 let user_filepath username = "data/" ^ username ^ ".csv"
@@ -84,4 +84,4 @@ let login () =
       manage_transactions username
   | _ -> print_endline "Invalid option selected."
 
-let () = startup ()
+let () = login ()
