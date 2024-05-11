@@ -28,6 +28,7 @@ let startup () =
       let new_account = create_account username password in
       let updated_accounts = add_account new_account accounts in
       save_accounts "data/users.csv" updated_accounts;
+      (* create_new_transaction_file username; *)
       print_endline "Account created successfully."
   | _ -> print_endline "Invalid option selected."
 
