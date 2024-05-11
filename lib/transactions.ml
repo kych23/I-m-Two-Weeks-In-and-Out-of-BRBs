@@ -53,8 +53,5 @@ let filter_transactions_by_date transactions start_date end_date =
     (fun txn -> txn.date >= start_date && txn.date <= end_date)
     transactions
 
-let filter_transactions_by_category transactions category =
-  List.filter (fun txn -> txn.category = category) transactions
-
-let sum_transactions transactions =
-  List.fold_left (fun acc txn -> acc +. txn.amount) 0.0 transactions
+let delete_transaction txn_id transactions =
+  List.filter (fun txn -> txn.id <> txn_id) transactions
