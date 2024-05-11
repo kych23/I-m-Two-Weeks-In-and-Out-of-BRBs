@@ -5,7 +5,7 @@ open Cs3110_final_project.Account
 let test_account =
   [
     ( "create new account" >:: fun _ ->
-      let acc = create_account "khoa" "ktn9" in
+      let acc = create_account 1.0 "khoa" "ktn9" in
       assert_equal true (acc.username = "khoa") );
   ]
 

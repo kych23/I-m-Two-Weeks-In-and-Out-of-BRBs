@@ -8,8 +8,8 @@ let user_filepath username = "data/" ^ username ^ ".csv"
 (** [manage_transactions] gives the user options to manipulate their
     transactions csv file *)
 let manage_transactions username =
-  let transactions = ref (load_transactions (user_filepath username)) in
   let rec options () =
+    let transactions = ref (load_transactions (user_filepath username)) in
     print_endline "What would you like to do?";
     print_endline "1: Add a transaction";
     print_endline "2: View transactions";
@@ -29,6 +29,7 @@ let manage_transactions username =
            transactions := add_transaction new_transaction !transactions;
            print_endline "Transaction added successfully."
          with Failure msg -> print_endline ("Error: " ^ msg));
+        save_transactions (user_filepath username) !transactions;
         options ()
       end
     | "2" -> begin
@@ -70,8 +71,12 @@ let login () =
       let username = read_line () in
       print_endline "Choose a password:";
       let password = read_line () in
+      print_endline "How many BRB's do you have ($$.¢¢)";
+      let balance = read_line () in
       let accounts = load_accounts "data/users.csv" in
-      let new_account = create_account username password in
+      let new_account =
+        create_account (float_of_string balance) username password
+      in
       let updated_accounts = add_account new_account accounts in
       save_accounts "data/users.csv" updated_accounts;
       print_endline "Account created successfully.";

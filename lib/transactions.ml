@@ -1,11 +1,8 @@
 type transaction = {
-  id : int;
   date : string;
   amount : float;
   category : string;
 }
-
-let current_id = ref 0
 
 let ensure_directory_exists path =
   if not (Sys.file_exists path) then Unix.mkdir path 0o755
@@ -18,51 +15,46 @@ let create_and_save_csv_in_folder folder filename =
 let create_new_transaction_file username =
   create_and_save_csv_in_folder "data" (username ^ ".csv")
 
-let create_transaction date amount category =
-  current_id := !current_id + 1;
-  { id = !current_id; date; amount; category }
+let create_transaction date amount category = { date; amount; category }
 
 let load_transactions filename =
   let table = Csv.load filename in
-  List.map
-    (function
-      | [ id; date; amount; category ] ->
-          {
-            id = int_of_string id;
-            date;
-            amount = float_of_string amount;
-            category;
-          }
-      | _ -> failwith "error with csv")
-    table
+  match table with
+  | [] -> []
+  | _ ->
+      List.map
+        (function
+          | [ date; amount; category ] ->
+              { date; amount = float_of_string amount; category }
+          | _ -> failwith "error with csv")
+          (* Error handling for incorrect format *)
+        table
 
 let save_transactions filename transactions =
   let data =
     List.map
-      (fun txn ->
-        [
-          string_of_int txn.id;
-          txn.date;
-          string_of_float txn.amount;
-          txn.category;
-        ])
+      (fun txn -> [ txn.date; string_of_float txn.amount; txn.category ])
       transactions
   in
   Csv.save filename data
 
-let add_transaction new_txn transactions =
-  if List.exists (fun txn -> txn.id = new_txn.id) transactions then
-    failwith "Transaction ID already exists"
-  else new_txn :: transactions
-
-let delete_transaction txn_id transactions =
-  List.filter (fun txn -> txn.id <> txn_id) transactions
+let add_transaction new_txn transactions = new_txn :: transactions
 
 let view_transactions transactions =
   List.iter
     (fun txn ->
-      Printf.printf "Transaction ID: %d\n" txn.id;
       Printf.printf "Date: %s\n" txn.date;
       Printf.printf "Amount: %.2f\n" txn.amount;
       Printf.printf "Category: %s\n\n" txn.category)
     transactions
+
+let filter_transactions_by_date transactions start_date end_date =
+  List.filter
+    (fun txn -> txn.date >= start_date && txn.date <= end_date)
+    transactions
+
+let filter_transactions_by_category transactions category =
+  List.filter (fun txn -> txn.category = category) transactions
+
+let sum_transactions transactions =
+  List.fold_left (fun acc txn -> acc +. txn.amount) 0.0 transactions
