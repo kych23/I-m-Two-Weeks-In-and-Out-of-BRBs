@@ -14,7 +14,7 @@ let create_and_save_csv_in_folder folder filename =
   Csv.save path []
 
 let create_new_transaction_file username =
-  create_and_save_csv_in_folder "/data" username
+  create_and_save_csv_in_folder "data" (username ^ ".csv")
 
 let create_transaction id date amount category = { id; date; amount; category }
 
@@ -53,3 +53,12 @@ let add_transaction new_txn transactions =
 
 let delete_transaction txn_id transactions =
   List.filter (fun txn -> txn.id <> txn_id) transactions
+
+let view_transactions transactions =
+  List.iter
+    (fun txn ->
+      Printf.printf "Transaction ID: %d\n" txn.id;
+      Printf.printf "Date: %s\n" txn.date;
+      Printf.printf "Amount: %.2f\n" txn.amount;
+      Printf.printf "Category: %s\n\n" txn.category)
+    transactions
