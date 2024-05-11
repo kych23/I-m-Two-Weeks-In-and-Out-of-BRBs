@@ -17,15 +17,27 @@ val save_transactions : string -> transaction list -> unit
     [transactions] to the file [filename]. *)
 
 val add_transaction : transaction -> transaction list -> transaction list
+(** [add_transaction txn txn_lst] adds a transaction [txn] to the transaction
+    list [txn_lst] *)
+
 val view_transactions : transaction list -> unit
+(** [view_transactions txn_lst] prints the current user's transaction list
+    [txn_lst] *)
 
 val filter_transactions_by_date :
   transaction list -> string -> string -> transaction list
+(** [filter_transactions_by_date txn_lst s_date e_date] filters and returns the
+    list of transactions [txn_lst] that started after date [s_date] and ended
+    before date [e_date] *)
 
 val filter_transactions_by_category :
   transaction list -> string -> transaction list
+(** [filter_transactions_by_category txn_lst category] filters and returns the
+    list of transactions [txn_lst] that are categorized with [category] *)
 
 val sum_transactions : transaction list -> float
+(** [sum_transactions txn_lst] returns the sum of all of the transaction amounts
+    from transaction list [txn_lst] *)
 
 val get_txn_date : transaction -> string
 (** [get_txn_date transaction] returns the date of the transaction *)

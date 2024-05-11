@@ -11,24 +11,32 @@ exception AccountNotFound of string
 (** Exception raised when an account cannot be found *)
 
 val create_account : float -> string -> string -> account
-
-val load_accounts : string -> account list
-(** Load accounts from a CSV file *)
-
-val save_accounts : string -> account list -> unit
-(** Save accounts to a CSV file *)
-
-val find_account : string -> account list -> account
-(** Find an account by username *)
+(** [create_account bal usrnm pw] creates a new account with balance [bal],
+    username [usrnm], password [pw] *)
 
 val add_account : account -> account list -> account list
-(** Add a new account *)
+(** [add_account acc acc_list] adds a new account [acc] to the existing account
+    list [acc_list] *)
+
+val save_accounts : string -> account list -> unit
+(** [save_accounts filename acc_list] saves the current account list [acc_list]
+    to the CSV file [filename] *)
+
+val load_accounts : string -> account list
+(** [load_accounts filename] loads accounts from a CSV file [filename] and
+    converts it into an account list *)
+
+val find_account : string -> account list -> account
+(** [find_account username acc_list] finds the account with username [username]
+    in the list of accounts [acc_list] *)
 
 val update_account : account -> account list -> account list
-(** Update an existing account *)
+(** [update_account acc acc_list] replaces the old account with the new updated
+    account [acc] in the existing account list [acc_list]*)
 
 val delete_account : string -> account list -> account list
-(** Delete an account *)
+(** [delete_account usrnm acc_list] deletes the account with username [usrnm]
+    from the account list [acc_list] *)
 
 val get_acc_bal : account -> float
 (** [get_acc_bal account] returns the accounts balance *)
