@@ -13,4 +13,5 @@ val save_transactions : string -> transaction list -> unit
     [transactions] to the file [filename]. *)
 
 val add_transaction : transaction -> transaction list -> transaction list
-val delete_transaction : transaction -> transaction list -> transaction list
+val delete_transaction : int -> transaction list -> transaction list
+val view_transactions : transaction list -> unit

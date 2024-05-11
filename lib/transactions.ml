@@ -42,3 +42,12 @@ let add_transaction new_txn transactions =
 
 let delete_transaction txn_id transactions =
   List.filter (fun txn -> txn.id <> txn_id) transactions
+
+let view_transactions transactions =
+  List.iter
+    (fun txn ->
+      Printf.printf "Transaction ID: %d\n" txn.id;
+      Printf.printf "Date: %s\n" txn.date;
+      Printf.printf "Amount: %.2f\n" txn.amount;
+      Printf.printf "Category: %s\n\n" txn.category)
+    transactions
