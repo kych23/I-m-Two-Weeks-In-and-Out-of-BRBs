@@ -55,7 +55,8 @@ let manage_transactions username =
         let balance = acc.balance in
         let string_balance = string_of_float !balance in
         let message = "Your current balance is " ^ string_balance in
-        print_endline message
+        print_endline message;
+        options ()
       end
     | "4" -> begin
         save_transactions (user_filepath username) !transactions;
