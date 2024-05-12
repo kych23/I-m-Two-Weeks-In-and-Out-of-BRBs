@@ -9,6 +9,10 @@ let ensure_no_existing_account username accounts =
     save_accounts "../../../data/users.csv" updated_accounts
   with AccountNotFound _ -> ()
 
+(* resets users.csv file. WARNING - will delete all previously registered
+   accounts *)
+let _ = clear_users_csv "../../../data/users.csv"
+
 let test_account =
   [
     (* TESTS for checking the new account constructor correctly assigns the
@@ -47,31 +51,52 @@ let test_account =
               txns_file = get_acc_txns_file test_acc_1;
             };
           ]) );
-    (* ( "load_accounts : csv file content correctly converts to account list \
-       (two+ accounts)" >:: fun _ -> let _ = clear_users_csv
-       "../../../data/users.csv" in let accounts = load_accounts
-       "../../../data/users.csv" in ensure_no_existing_account "TEST" accounts;
-       ensure_no_existing_account "TEST2" accounts; ensure_no_existing_account
-       "TEST3" accounts;
+    ( "load_accounts : csv file content correctly converts to account list \
+       (two+ accounts)"
+    >:: fun _ ->
+      let _ = clear_users_csv "../../../data/users.csv" in
+      let accounts = load_accounts "../../../data/users.csv" in
+      ensure_no_existing_account "TEST" accounts;
+      ensure_no_existing_account "TEST2" accounts;
+      ensure_no_existing_account "TEST3" accounts;
 
-       let accounts = load_accounts "../../../data/users.csv" in let test_acc_1
-       = create_account 100.00 "TEST" "TEST" in let test_acc_2 = create_account
-       101.00 "TEST2" "TEST2" in let test_acc_3 = create_account 102.00 "TEST3"
-       "TEST3" in
+      let accounts = load_accounts "../../../data/users.csv" in
+      let test_acc_1 = create_account 100.00 "TEST" "TEST" in
+      let test_acc_2 = create_account 101.00 "TEST2" "TEST2" in
+      let test_acc_3 = create_account 102.00 "TEST3" "TEST3" in
 
-       let updated_accounts = add_account test_acc_3 (add_account test_acc_2
-       (add_account test_acc_1 accounts)) in save_accounts
-       "../../../data/users.csv" updated_accounts;
+      let updated_accounts =
+        add_account test_acc_3
+          (add_account test_acc_2 (add_account test_acc_1 accounts))
+      in
+      save_accounts "../../../data/users.csv" updated_accounts;
 
-       let accounts = load_accounts "../../../data/users.csv" in assert_equal
-       true (accounts = [ { balance = ref (get_acc_bal test_acc_1); username =
-       get_acc_username test_acc_1; password = get_acc_password test_acc_1;
-       txns_file = get_acc_txns_file test_acc_1; }; { balance = ref (get_acc_bal
-       test_acc_2); username = get_acc_username test_acc_2; password =
-       get_acc_password test_acc_2; txns_file = get_acc_txns_file test_acc_2; };
-       { balance = ref (get_acc_bal test_acc_3); username = get_acc_username
-       test_acc_3; password = get_acc_password test_acc_3; txns_file =
-       get_acc_txns_file test_acc_3; }; ]) ); *)
+      let accounts = load_accounts "../../../data/users.csv" in
+      let test_acc_1 = find_account "TEST" accounts in
+      let test_acc_2 = find_account "TEST2" accounts in
+      let test_acc_3 = find_account "TEST3" accounts in
+      assert_equal true
+        (accounts
+        = [
+            {
+              balance = ref (get_acc_bal test_acc_3);
+              username = get_acc_username test_acc_3;
+              password = get_acc_password test_acc_3;
+              txns_file = get_acc_txns_file test_acc_3;
+            };
+            {
+              balance = ref (get_acc_bal test_acc_2);
+              username = get_acc_username test_acc_2;
+              password = get_acc_password test_acc_2;
+              txns_file = get_acc_txns_file test_acc_2;
+            };
+            {
+              balance = ref (get_acc_bal test_acc_1);
+              username = get_acc_username test_acc_1;
+              password = get_acc_password test_acc_1;
+              txns_file = get_acc_txns_file test_acc_1;
+            };
+          ]) );
     (* TESTS for checking if a user exists inthe users.csv file *)
     ( "find_account : checking arbitrary account doesn't exist in users.csv"
     >:: fun _ ->
@@ -79,7 +104,7 @@ let test_account =
       assert_raises (AccountNotFound "SHOULD RETURN ERROR") (fun _ ->
           find_account "SHOULD RETURN ERROR" accounts) );
     ( "find_account : checking test_acc_1 exists in users.csv" >:: fun _ ->
-      (* let _ = clear_users_csv "../../../data/users.csv" in *)
+      let _ = clear_users_csv "../../../data/users.csv" in
       let accounts = load_accounts "../../../data/users.csv" in
       ensure_no_existing_account "TEST" accounts;
       let accounts = load_accounts "../../../data/users.csv" in
