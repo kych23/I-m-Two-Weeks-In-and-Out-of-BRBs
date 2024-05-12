@@ -52,3 +52,15 @@ val get_acc_txns_file : account -> string
 
 val clear_users_csv : string -> unit
 (** [clear_users_csv filename] deletes all entries in the users.csv file *)
+
+val add_funds : account -> float -> account
+(** [add_funds account extra] is the account [account] with an updated balance
+    with [extra] added to the current balance *)
+
+val change_password : account -> string -> account
+(** [change_password account new_pw] is the [account] with a new password which
+    is [new_pw] *)
+
+val change_username : account -> string -> account
+(** [change_username account new_name] is the same [account] with an updated
+    username that is [new_name] *)
