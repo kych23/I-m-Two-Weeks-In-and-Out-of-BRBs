@@ -62,3 +62,4 @@ let sum_transactions transactions =
 let get_txn_date transaction = transaction.date
 let get_txn_amt transaction = transaction.amount
 let get_txn_category transaction = transaction.category
+let get_txn_amounts transaction_lt = List.map get_txn_amt transaction_lt

@@ -47,3 +47,6 @@ val get_txn_amt : transaction -> float
 
 val get_txn_category : transaction -> string
 (** [get_txn_category transaction] returns the category of the transaction *)
+
+val get_txn_amounts : transaction list -> float list
+(** [get_txn_category transactions] is the list of all the transactions' amounts *)
