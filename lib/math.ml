@@ -26,18 +26,33 @@ let average_over_days_list (lst : float list) days =
 (* [brb_venders] is a list of all places on Cornell's campus that accept brbs *)
 let brb_venders =
   [
-    ( "Trillium",
-      "Terrace",
-      "Dairy Bar",
-      "Mac's",
-      "Jennie",
-      "Martha's",
-      "Ivy",
-      "Nasties",
-      "Bus Stop Bagels",
-      "Libe",
-      "Goldie's",
-      "Mattin's" );
+    "Trillium";
+    "Terrace";
+    "Dairy Bar";
+    "Mac's";
+    "Jennie";
+    "Martha's";
+    "Ivy";
+    "Nasties";
+    "Bus Stop Bagels";
+    "Libe";
+    "Goldie's";
+    "Mattin's";
+    "Jansen's";
+  ]
+
+(* [brb_items] is a list of our favorite items on campus that can be purchased
+   with brbs *)
+let brb_items =
+  [
+    "Trillium Burger";
+    "Terrace Burrito Bowl";
+    "Dairy Bar Root Beer Float";
+    "Mac's Sandwich";
+    "Jennie Chicken Milano";
+    "Nasties Bear Sampler";
+    "Mattin's Quesadilla";
+    "Jansen's Southwest Chicken Sub";
   ]
 
 (* [choose_number_from_list lst] randomly chooses an index in [lst]*)
@@ -59,6 +74,10 @@ let get_element lst index = get_element_helper lst index 0
 let get_brb_spot =
   let random_spot = choose_number_from_list brb_venders in
   get_element brb_venders random_spot
+
+let get_brb_item =
+  let random_item = choose_number_from_list brb_items in
+  get_element brb_items random_item
 
 (* [desirability probability] generates a random integer from 0 to 100 and
    returns whether or not [probability] is greater than the random number*)
