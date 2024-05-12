@@ -28,11 +28,13 @@ val load_accounts : string -> account list
 
 val find_account : string -> account list -> account
 (** [find_account username acc_list] returns the account with username
-    [username] in the list of accounts [acc_list] *)
+    [username] in the list of accounts [acc_list]. Raises exception
+    [AccountNotFound] if acc is not in the list *)
 
 val update_account : account -> account list -> account list
 (** [update_account acc acc_list] replaces the old account with the new updated
-    account [acc] in the existing account list [acc_list]*)
+    account [acc] in the existing account list [acc_list]. Raises exception
+    [AccountNotFound] if acc was not already in the list *)
 
 val delete_account : string -> account list -> account list
 (** [delete_account usrnm acc_list] deletes the account with username [usrnm]
@@ -49,9 +51,6 @@ val get_acc_password : account -> string
 
 val get_acc_txns_file : account -> string
 (** [get_acc_txns_file account] returns the accounts transactions file name *)
-
-val clear_users_csv : string -> unit
-(** [clear_users_csv filename] deletes all entries in the users.csv file *)
 
 val add_funds : account -> float -> account
 (** [add_funds account extra] is the account [account] with an updated balance
