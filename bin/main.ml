@@ -13,8 +13,9 @@ let manage_transactions username =
     print_endline "What would you like to do?";
     print_endline "1: Add a transaction";
     print_endline "2: View transactions";
-    print_endline "3: Exit and save";
-    print_endline "Enter your choice (1-3): ";
+    print_endline "3: View balance";
+    print_endline "4: Exit and save";
+    print_endline "Enter your choice (1-4): ";
     let choice = read_line () in
     match choice with
     | "1" -> begin
@@ -27,6 +28,18 @@ let manage_transactions username =
         let new_transaction = create_transaction date amount category in
         (try
            transactions := add_transaction new_transaction !transactions;
+           let new_transaction_amount = amount in
+           (* find a way to get the account list from the csv file *)
+           let acc_list = ref (load_accounts "data/users.csv") in
+           let old_acc = find_account username !acc_list in
+           let curr_balance = get_acc_bal old_acc in
+           let updated_acc =
+             create_account
+               (curr_balance -. new_transaction_amount)
+               username (get_acc_password old_acc)
+           in
+           acc_list := update_account updated_acc !acc_list;
+           save_accounts "data/users.csv" !acc_list;
            print_endline "Transaction added successfully."
          with Failure msg -> print_endline ("Error: " ^ msg));
         save_transactions (user_filepath username) !transactions;
@@ -37,6 +50,14 @@ let manage_transactions username =
         options ()
       end
     | "3" -> begin
+        let acc_list = ref (load_accounts "data/users.csv") in
+        let acc = find_account username !acc_list in
+        let balance = acc.balance in
+        let string_balance = string_of_float !balance in
+        let message = "Your current balance is " ^ string_balance in
+        print_endline message
+      end
+    | "4" -> begin
         save_transactions (user_filepath username) !transactions;
         print_endline "Transactions saved and exiting."
       end
