@@ -69,3 +69,19 @@ let get_acc_txns_file account = account.txns_file
 let clear_users_csv filename =
   let out_channel = open_out filename in
   close_out out_channel
+
+let add_funds account extra =
+  let balance = get_acc_bal account in
+  let new_balance = balance +. extra in
+  create_account new_balance (get_acc_username account)
+    (get_acc_password account)
+
+let change_password account new_pw =
+  let username = get_acc_username account in
+  let balance = get_acc_bal account in
+  create_account balance username new_pw
+
+let change_username account new_username =
+  let balance = get_acc_bal account in
+  let pw = get_acc_password account in
+  create_account balance new_username pw
