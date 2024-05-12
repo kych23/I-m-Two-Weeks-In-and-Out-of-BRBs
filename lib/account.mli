@@ -27,8 +27,8 @@ val load_accounts : string -> account list
     converts it into an account list *)
 
 val find_account : string -> account list -> account
-(** [find_account username acc_list] finds the account with username [username]
-    in the list of accounts [acc_list] *)
+(** [find_account username acc_list] returns the account with username
+    [username] in the list of accounts [acc_list] *)
 
 val update_account : account -> account list -> account list
 (** [update_account acc acc_list] replaces the old account with the new updated
