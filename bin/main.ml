@@ -68,6 +68,72 @@ let manage_transactions username =
   in
   options ()
 
+let manage_account username =
+  let rec options () =
+    print_endline "Welcome to account settings";
+    print_endline "What would you like to do?";
+    print_endline "Enter a choice (1-3)";
+    print_endline "1: Manage funds";
+    print_endline "2: Change username";
+    print_endline "3: Change password";
+    print_endline "4. Exit and save";
+    let choice = read_line () in
+    match choice with
+    | "1" -> begin
+        print_endline "How much would you like to add to your balance?";
+        let extra = read_float () in
+        let acc_list = ref (load_accounts "data/users.csv") in
+        let acc = find_account username !acc_list in
+        let acc_with_new_bal = add_funds acc extra in
+        acc_list := update_account acc_with_new_bal !acc_list;
+        save_accounts "data/users.csv" !acc_list
+      end
+    | "2" -> begin
+        print_endline "What do you want your new username to be?";
+        let new_name = read_line () in
+        let acc_list = ref (load_accounts "data/users.csv") in
+        let acc = find_account username !acc_list in
+        let acc_new_name = change_username acc new_name in
+        acc_list := delete_account (get_acc_username acc) !acc_list;
+        acc_list := add_account acc_new_name !acc_list;
+        save_accounts "data/users.csv" !acc_list
+      end
+    | "3" -> begin
+        print_endline "What do you want your new password to be?";
+        let new_pw = read_line () in
+        let acc_list = ref (load_accounts "data/users.csv") in
+        let acc = find_account username !acc_list in
+        let acc_new_pw = change_password acc new_pw in
+        acc_list := update_account acc_new_pw !acc_list;
+        save_accounts "data/users.csv" !acc_list
+      end
+    | "4" -> begin
+        let acc_list = ref (load_accounts "data/users.csv") in
+        save_accounts "data/users.csv" !acc_list
+      end
+    | _ -> begin
+        print_endline "Invalid choice, please enter 1, 2, 3 or 4.";
+        options ()
+      end
+  in
+  options ()
+
+let rec home username =
+  print_endline "What would you like to do?";
+  print_endline "1. Manage account";
+  print_endline "2. Manage transactions";
+  print_endline "3. Logout";
+  let choice = read_line () in
+  match choice with
+  | "1" ->
+      manage_account username;
+      home username
+  | "2" ->
+      manage_transactions username;
+      home username
+  | "3" -> print_endline "Goodbye"
+  | _ -> print_endline "Log in again and choose 1, 2, or 3"
+
 (** [start] starts the program and prompts the user to login/create their
     account *)
 let start () =
@@ -85,8 +151,7 @@ let start () =
         let account = find_account username accounts in
         if account.password <> password then print_endline "Incorrect password."
         else begin
-          print_endline "Login successful!";
-          manage_transactions username
+          home username
         end
       with AccountNotFound msg -> print_endline ("Login failed: " ^ msg))
   | "2" ->
@@ -104,7 +169,7 @@ let start () =
       save_accounts "data/users.csv" updated_accounts;
       print_endline "Account created successfully.";
       create_new_transaction_file username;
-      manage_transactions username
+      home username
   | _ -> print_endline "Invalid option selected."
 
 let () = start ()
