@@ -139,3 +139,13 @@ let consistent_day starting ending day_spent days_passed =
 (* [you're_broke balance target] returns true if you're balance is below the
    target and false if it is above*)
 let you're_broke balance target = balance < target
+
+(* [calculate_remaining_money starting ending days_passed days_remaining]
+   calculates the estimated money remaining at the end of [days_remaining] based
+   on the rate of spending as given by starting balance [starting] current
+   balance [ending] and days passed [days_passed] *)
+let calculate_remaining_money starting ending days_passed days_remaining =
+  let rate = rate_of_spending starting ending days_passed in
+  let estimated_future_spent = rate *. days_remaining in
+  let estimated_remaining = ending -. estimated_future_spent in
+  estimated_remaining
