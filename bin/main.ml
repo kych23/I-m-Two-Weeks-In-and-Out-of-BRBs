@@ -1,6 +1,7 @@
 (* @author Khoa Nguyen (ktn9) Kyle Chu (kgc42) Vail Chen (vac68)*)
 open Cs3110_final_project.Account
 open Cs3110_final_project.Transactions
+open Cs3110_final_project.Math
 
 (** [user_filepath username] returns filename data/[username].csv *)
 let user_filepath username = "data/" ^ username ^ ".csv"
@@ -122,21 +123,51 @@ let manage_account username =
   in
   options ()
 
+(** this currently is not working as intended but as a starter it does call some
+    functions in math. *)
+let spend_analyzer username =
+  let options () =
+    print_endline "Welcome to your spending analysis";
+    print_endline "Here are some insights that you can view:";
+    print_endline "1: Days until broke at the rate of spending";
+    let acc_list = load_accounts "data/users.csv" in
+    let acc = find_account username acc_list in
+    let acc_balance = get_acc_bal acc in
+    let choice = read_line () in
+    match choice with
+    | "1" -> begin
+        print_endline "How many BRB's did you start out with?";
+        let start = read_line () in
+        let res = days_until_broke (float_of_string start) acc_balance 5.0 in
+        let message = string_of_float res ^ " days left" in
+        print_endline message
+      end
+    | _ -> print_endline "Exit"
+  in
+  options ()
+
 (** [home username] is the function that leads user [username] to the main menu. *)
 let rec home username =
   print_endline "What would you like to do?";
   print_endline "1. Manage account";
   print_endline "2. Manage transactions";
-  print_endline "3. Logout";
+  print_endline "3. Spend analyzer";
+  print_endline "4. Logout";
   let choice = read_line () in
   match choice with
-  | "1" ->
+  | "1" -> begin
       manage_account username;
       home username
-  | "2" ->
+    end
+  | "2" -> begin
       manage_transactions username;
       home username
-  | "3" -> print_endline "Goodbye"
+    end
+  | "3" -> begin
+      spend_analyzer username;
+      home username
+    end
+  | "4" -> print_endline "Goodbye"
   | _ -> print_endline "Log in again and choose 1, 2, or 3"
 
 (** [start] starts the program and prompts the user to login/create their
