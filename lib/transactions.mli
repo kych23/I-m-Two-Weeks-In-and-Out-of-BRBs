@@ -50,3 +50,7 @@ val get_txn_category : transaction -> string
 
 val get_txn_amounts : transaction list -> float list
 (** [get_txn_category transactions] is the list of all the transactions' amounts *)
+
+val rename_transaction_file : string -> string -> unit
+(** [rename_transaction_file old_name new_name] changes the transaction file's
+    name from [old_name] to [new_name]*)

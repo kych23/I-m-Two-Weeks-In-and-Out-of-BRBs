@@ -96,7 +96,11 @@ let manage_account username =
         let acc_new_name = change_username acc new_name in
         acc_list := delete_account (get_acc_username acc) !acc_list;
         acc_list := add_account acc_new_name !acc_list;
-        save_accounts "data/users.csv" !acc_list
+        save_accounts "data/users.csv" !acc_list;
+        rename_transaction_file username new_name;
+        print_endline
+          "Username has now changed! Log out and log in again to use the \
+           system!"
       end
     | "3" -> begin
         print_endline "What do you want your new password to be?";

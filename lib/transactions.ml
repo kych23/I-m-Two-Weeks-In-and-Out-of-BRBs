@@ -63,3 +63,13 @@ let get_txn_date transaction = transaction.date
 let get_txn_amt transaction = transaction.amount
 let get_txn_category transaction = transaction.category
 let get_txn_amounts transaction_lt = List.map get_txn_amt transaction_lt
+
+let rename_transaction_file old_username new_username =
+  let old_filename = "data/" ^ old_username ^ ".csv" in
+  let new_filename = "data/" ^ new_username ^ ".csv" in
+  if Sys.file_exists old_filename then
+    if Sys.file_exists new_filename then
+      Printf.printf
+        "Error: A transaction file with the new username already exists.\n"
+    else Sys.rename old_filename new_filename
+  else Printf.printf "Error: The original transaction file does not exist.\n"
