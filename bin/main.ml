@@ -105,9 +105,7 @@ let manage_account username =
         acc_list := add_account acc_new_name !acc_list;
         save_accounts "data/users.csv" !acc_list;
         rename_transaction_file username new_name;
-        print_endline
-          "Username has now changed! Log out and log in again to use the \
-           system!";
+        print_endline "Username has now changed! Log out to save your changes!";
         print_endline ""
       end
     | "3" -> begin
