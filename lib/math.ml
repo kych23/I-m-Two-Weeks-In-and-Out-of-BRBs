@@ -156,9 +156,9 @@ let consistent_day starting ending day_spent days_passed =
   let truth = day_spent -. rate < 10. || day_spent -. rate > -10. in
   truth
 
-(* [you're_broke balance target] returns true if you're balance is below the
+(* [youre_broke balance target] returns true if you're balance is below the
    target and false if it is above*)
-let you're_broke balance target = balance < target
+let youre_broke balance target = balance < target
 
 (* [calculate_remaining_money starting ending days_passed days_remaining]
    calculates the estimated money remaining at the end of [days_remaining] based

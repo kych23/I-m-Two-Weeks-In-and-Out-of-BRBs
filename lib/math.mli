@@ -65,7 +65,7 @@ val consistent_day : float -> float -> float -> float -> bool
 (** Checks if a day's spending is consistent with the previous daily spending
     rate. *)
 
-val you're_broke : float -> float -> bool
+val youre_broke : float -> float -> bool
 (** Checks if the balance is below a target amount. *)
 
 val calculate_remaining_money : float -> float -> float -> float -> float
