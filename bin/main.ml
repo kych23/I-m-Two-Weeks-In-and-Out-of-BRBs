@@ -118,6 +118,7 @@ let manage_account username =
   in
   options ()
 
+(** [home username] is the function that leads user [username] to the main menu. *)
 let rec home username =
   print_endline "What would you like to do?";
   print_endline "1. Manage account";
