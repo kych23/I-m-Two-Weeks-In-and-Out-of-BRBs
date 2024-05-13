@@ -41,7 +41,8 @@ let manage_transactions username =
            in
            acc_list := update_account updated_acc !acc_list;
            save_accounts "data/users.csv" !acc_list;
-           print_endline "Transaction added successfully."
+           print_endline "Transaction added successfully.";
+           print_endline ""
          with Failure msg -> print_endline ("Error: " ^ msg));
         save_transactions (user_filepath username) !transactions;
         options ()
@@ -57,14 +58,17 @@ let manage_transactions username =
         let string_balance = string_of_float !balance in
         let message = "Your current balance is " ^ string_balance in
         print_endline message;
+        print_endline "";
         options ()
       end
     | "4" -> begin
         save_transactions (user_filepath username) !transactions;
-        print_endline "Transactions saved and exiting."
+        print_endline "Back to main menu";
+        print_endline ""
       end
     | _ ->
         print_endline "Invalid choice, please enter 1, 2, or 3.";
+        print_endline "";
         options ()
   in
   options ()
@@ -87,7 +91,9 @@ let manage_account username =
         let acc = find_account username !acc_list in
         let acc_with_new_bal = add_funds acc extra in
         acc_list := update_account acc_with_new_bal !acc_list;
-        save_accounts "data/users.csv" !acc_list
+        save_accounts "data/users.csv" !acc_list;
+        print_endline "Funds added successfully";
+        print_endline ""
       end
     | "2" -> begin
         print_endline "What do you want your new username to be?";
@@ -101,7 +107,8 @@ let manage_account username =
         rename_transaction_file username new_name;
         print_endline
           "Username has now changed! Log out and log in again to use the \
-           system!"
+           system!";
+        print_endline ""
       end
     | "3" -> begin
         print_endline "What do you want your new password to be?";
@@ -114,10 +121,13 @@ let manage_account username =
       end
     | "4" -> begin
         let acc_list = ref (load_accounts "data/users.csv") in
-        save_accounts "data/users.csv" !acc_list
+        save_accounts "data/users.csv" !acc_list;
+        print_endline "Back to main menu";
+        print_endline ""
       end
     | _ -> begin
         print_endline "Invalid choice, please enter 1, 2, 3 or 4.";
+        print_endline "";
         options ()
       end
   in
