@@ -27,7 +27,6 @@ let load_transactions filename =
           | [ date; amount; category ] ->
               { date; amount = float_of_string amount; category }
           | _ -> failwith "error with csv")
-          (* Error handling for incorrect format *)
         table
 
 let save_transactions filename transactions =

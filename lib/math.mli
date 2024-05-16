@@ -24,10 +24,10 @@ val choose_number_from_list : 'a list -> int
 val get_element : 'a list -> int -> 'a
 (** Returns the element at a specified index in a list. *)
 
-val get_brb_spot : string
+val get_brb_spot : unit -> string
 (** Returns a random brb spot. *)
 
-val get_brb_item : string
+val get_brb_item : unit -> string
 (** Returns a random brb item. *)
 
 val desirability : int -> bool

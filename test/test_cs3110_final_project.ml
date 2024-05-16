@@ -2,8 +2,6 @@ open OUnit2
 open Cs3110_final_project.Account
 open Cs3110_final_project.Transactions
 
-(* open Cs3110_final_project.Transaction *)
-
 (* Function to delete a file *)
 let delete_csv_file file_path =
   try
@@ -237,49 +235,100 @@ let test_account =
               txns_file = get_acc_txns_file updated_acc;
             };
           ]) );
+    (* ------------------------ TESTS add_funds ----------------------- *)
+    ( "add_funds : adds funds to user that exists" >:: fun _ ->
+      let test_csv_file = create_empty_csv "../../../data/" "test_users9.csv" in
+      let accounts = load_accounts test_csv_file in
+      let test_acc_1 = create_account 100.00 "TEST" "TEST" in
+      let updated_accounts = add_account test_acc_1 accounts in
+      save_accounts test_csv_file updated_accounts;
+      let accounts = load_accounts test_csv_file in
+      let updated_acc = add_funds test_acc_1 50.00 in
+      let updated_accounts =
+        delete_account (get_acc_username test_acc_1) accounts
+      in
+      let updated_accounts = add_account updated_acc updated_accounts in
+      let _ = save_accounts test_csv_file updated_accounts in
+      let _ = delete_csv_file test_csv_file in
+      assert_equal true
+        (updated_accounts
+        = [
+            {
+              balance = ref 150.00;
+              username = get_acc_username updated_acc;
+              password = get_acc_password updated_acc;
+              txns_file = get_acc_txns_file updated_acc;
+            };
+          ]) );
   ]
 
 let test_transactions =
   [
-    (* Test for creating a transaction *)
-    ( "create_transaction" >:: fun _ ->
+    (* ---------------------- TESTS create_transaction ---------------------- *)
+    ( "create_transaction : creates a new valid transaction" >:: fun _ ->
       let txn = create_transaction "2024-05-16" 100.0 "Food" in
       assert_equal (get_txn_date txn) "2024-05-16";
       assert_equal (get_txn_amt txn) 100.0;
       assert_equal (get_txn_category txn) "Food" );
-    (* Test for adding a transaction *)
-    ( "add_transaction" >:: fun _ ->
+    (* ------------------------TESTS add_transaction ------------------------ *)
+    ( "add_transaction : adds a transaction to a transaction file" >:: fun _ ->
+      let test_csv_file = create_empty_csv "../../../data/" "test_user1.csv" in
+      let transactions = load_transactions test_csv_file in
       let txn1 = create_transaction "2024-05-16" 100.0 "Food" in
       let txn2 = create_transaction "2024-05-17" 200.0 "Transport" in
-      let transactions = add_transaction txn1 [] in
-      let transactions = add_transaction txn2 transactions in
+      let upd_txns = add_transaction txn2 (add_transaction txn1 transactions) in
+      save_transactions test_csv_file upd_txns;
+      let transactions = load_transactions test_csv_file in
+      let _ = delete_csv_file test_csv_file in
       assert_equal 2 (List.length transactions);
-      assert_equal "2024-05-17" (get_txn_date (List.hd transactions)) );
-    (* Test for summing transactions *)
+      assert_equal true (transactions = [ txn2; txn1 ]) );
+    (* ------------------------TESTS sum_transactions ----------------------- *)
     ( "sum_transactions" >:: fun _ ->
+      let test_csv_file = create_empty_csv "../../../data/" "test_user2.csv" in
+      let transactions = load_transactions test_csv_file in
       let txn1 = create_transaction "2024-05-16" 100.0 "Food" in
       let txn2 = create_transaction "2024-05-17" 200.0 "Transport" in
-      let transactions = [ txn1; txn2 ] in
+      let upd_txns = add_transaction txn2 (add_transaction txn1 transactions) in
+      save_transactions test_csv_file upd_txns;
+      let transactions = load_transactions test_csv_file in
+      let _ = delete_csv_file test_csv_file in
       assert_equal 300.0 (sum_transactions transactions) );
-    (* Test for filtering transactions by category *)
+    (* ------------------ TESTS filter_transactions_by_category ------------- *)
     ( "filter_transactions_by_category" >:: fun _ ->
+      let test_csv_file = create_empty_csv "../../../data/" "test_user3.csv" in
+      let transactions = load_transactions test_csv_file in
       let txn1 = create_transaction "2024-05-16" 100.0 "Food" in
       let txn2 = create_transaction "2024-05-17" 200.0 "Transport" in
-      let transactions = [ txn1; txn2 ] in
+      let upd_txns = add_transaction txn2 (add_transaction txn1 transactions) in
+      save_transactions test_csv_file upd_txns;
+      let transactions = load_transactions test_csv_file in
       let food_txns = filter_transactions_by_category transactions "Food" in
+      let _ = delete_csv_file test_csv_file in
       assert_equal 1 (List.length food_txns);
-      assert_equal "Food" (get_txn_category (List.hd food_txns)) );
-    (* Test for filtering transactions by date *)
+      assert_equal "Food" (get_txn_category (List.hd food_txns));
+      assert_equal true (food_txns = [ txn1 ]) );
+    (* ------------------ TESTS filter_transactions_by_date ----------------- *)
     ( "filter_transactions_by_date" >:: fun _ ->
+      let test_csv_file = create_empty_csv "../../../data/" "test_user4.csv" in
+      let transactions = load_transactions test_csv_file in
       let txn1 = create_transaction "2024-05-16" 100.0 "Food" in
       let txn2 = create_transaction "2024-05-17" 200.0 "Transport" in
-      let transactions = [ txn1; txn2 ] in
+      let txn3 = create_transaction "2024-05-19" 50.0 "Food" in
+      let upd_txns =
+        add_transaction txn3
+          (add_transaction txn2 (add_transaction txn1 transactions))
+      in
+      save_transactions test_csv_file upd_txns;
+      let transactions = load_transactions test_csv_file in
       let date_filtered_txns =
         filter_transactions_by_date transactions "2024-05-16" "2024-05-17"
       in
-      assert_equal 2 (List.length date_filtered_txns) );
-    (* Test for creating a transaction file *)
-    ( "test_create_new_transaction_file" >:: fun _ ->
+      let _ = delete_csv_file test_csv_file in
+      assert_equal 2 (List.length date_filtered_txns);
+      assert_equal "Transport" (get_txn_category (List.hd date_filtered_txns));
+      assert_equal true (date_filtered_txns = [ txn2; txn1 ]) );
+    (* --------------- TESTS test_create_new_transaction_file --------------- *)
+    ( "create_new_transaction_file" >:: fun _ ->
       let username = "testuser" in
       create_new_transaction_file username;
       let path = Filename.concat "data" (username ^ ".csv") in
