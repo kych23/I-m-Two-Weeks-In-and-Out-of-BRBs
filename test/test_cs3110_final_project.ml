@@ -238,7 +238,9 @@ let test_account =
           ]) );
     (* ------------------------ TESTS add_funds ----------------------- *)
     ( "add_funds : adds funds to user that exists" >:: fun _ ->
-      let test_csv_file = create_empty_csv "../../../data/" "test_users9.csv" in
+      let test_csv_file =
+        create_empty_csv "../../../data/" "test_users10.csv"
+      in
       let accounts = load_accounts test_csv_file in
       let test_acc_1 = create_account 100.00 "TEST" "TEST" in
       let updated_accounts = add_account test_acc_1 accounts in
@@ -374,9 +376,38 @@ let test_math =
       assert_equal true (optimize_future_spending 100.0 10.0 = 10.0) );
     ( "optimize_future_spending : floats " >:: fun _ ->
       assert_equal true (optimize_future_spending 105.0 10.0 = 10.5) );
-    ( "optimize_future_spending : zero " >:: fun _ ->
+    ( "optimize_future_spending : 0 days " >:: fun _ ->
       assert_raises DivideByZero (fun () -> optimize_future_spending 105.0 0.)
     );
+    ( "optimize_future_spending : 0 balance " >:: fun _ ->
+      assert_equal true (optimize_future_spending 0.0 10.0 = 0.0) );
+    (* --------------------- TESTS rate_of_spending ----------------- *)
+    ( "rate_of_spending : integers " >:: fun _ ->
+      assert_equal true (rate_of_spending 100.0 10.0 5.0 = 18.0) );
+    ( "rate_of_spending : floats " >:: fun _ ->
+      assert_equal true (rate_of_spending 100.0 10.0 4.5 = 20.0) );
+    ( "rate_of_spending : 0 days " >:: fun _ ->
+      assert_raises DivideByZero (fun () -> rate_of_spending 105.0 0. 0.0) );
+    ( "rate_of_spending : 0 balance " >:: fun _ ->
+      assert_equal true (rate_of_spending 0.0 0.0 10.0 = 0.0) );
+    (* --------------------- TESTS days_until_broke ----------------- *)
+    ( "days_until_broke : integers " >:: fun _ ->
+      assert_equal true (days_until_broke 160.0 60.0 5.0 = 3.0) );
+    ( "days_until_broke : floats " >:: fun _ ->
+      assert_equal true (days_until_broke 500.0 50.0 4.5 = 0.5) );
+    ( "days_until_broke : 0 days " >:: fun _ ->
+      assert_raises DivideByZero (fun () -> days_until_broke 105.0 0.0 0.0) );
+    ( "days_until_broke : 0 balance " >:: fun _ ->
+      assert_equal true (days_until_broke 100.0 0.0 10.0 = 0.0) );
+    (* --------------- TESTS calculate_percentages_category ----------------- *)
+    ( "calculate_percentages_category : integers " >:: fun _ ->
+      assert_equal true (days_until_broke 160.0 60.0 5.0 = 3.0) );
+    ( "calculate_percentages_category : floats " >:: fun _ ->
+      assert_equal true (days_until_broke 500.0 50.0 4.5 = 0.5) );
+    ( "calculate_percentages_category : 0 days " >:: fun _ ->
+      assert_raises DivideByZero (fun () -> days_until_broke 105.0 0.0 0.0) );
+    ( "calculate_percentages_category : 0 balance " >:: fun _ ->
+      assert_equal true (days_until_broke 100.0 0.0 10.0 = 0.0) );
   ]
 
 let tests = "test suite" >::: test_account @ test_transactions @ test_math
