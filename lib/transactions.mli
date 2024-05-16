@@ -1,3 +1,5 @@
+(* @author Khoa Nguyen (ktn9) Kyle Chu (kgc42) Vail Chen (vac68)*)
+
 type transaction
 
 val create_new_transaction_file : string -> unit

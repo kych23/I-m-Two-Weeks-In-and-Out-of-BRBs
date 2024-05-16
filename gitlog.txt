@@ -1,0 +1,1162 @@
+commit ff72c7add7bab92d2a006e2df33c28e25fac1540
+Merge: 720131a 2c3d9f1
+Author: ktn9 <ktn9@cornell.edu>
+Date:   Thu May 16 04:52:31 2024 -0400
+
+    Merge pull request #58 from ktn9/khoa
+    
+    Final commit
+
+commit 2c3d9f1bd253921690c7186691dd7e81745a2f41
+Author: Khoa Nguyen <ktn9@cornell.edu>
+Date:   Thu May 16 04:52:02 2024 -0400
+
+    Final commit
+
+commit 720131a76564bbea8e713b30706bcaf34de58c9d
+Merge: 599e398 f8abd9e
+Author: ktn9 <ktn9@cornell.edu>
+Date:   Thu May 16 04:49:49 2024 -0400
+
+    Merge pull request #57 from ktn9/khoa
+    
+    Added test plan document to the root
+
+commit f8abd9ea3678502f7248ec61cd173455ce9a3194
+Author: Khoa Nguyen <ktn9@cornell.edu>
+Date:   Thu May 16 04:49:25 2024 -0400
+
+    Added test plan document to the root
+
+commit 599e3981cb75f52f46cf989aa6687dbe70a6395e
+Merge: 3c8e271 e42461d
+Author: ktn9 <ktn9@cornell.edu>
+Date:   Thu May 16 04:48:03 2024 -0400
+
+    Merge pull request #56 from ktn9/khoa
+    
+    Added ascii art for transactions
+
+commit e42461d48984fb84aaee1f35cadcfbb5584fef32
+Author: Khoa Nguyen <ktn9@cornell.edu>
+Date:   Thu May 16 04:47:32 2024 -0400
+
+    Added ascii art for transactions
+
+commit 3c8e27112f11920bac7b16ad64aa7bf9bdf42535
+Merge: 3eabf30 43097b0
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Thu May 16 04:42:31 2024 -0400
+
+    Merge pull request #55 from ktn9/kyle
+    
+    finished testing
+
+commit 43097b0b493f87680cd5ec9f4f5e4d985b211ee9
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Thu May 16 04:42:09 2024 -0400
+
+    finished testing
+
+commit 3eabf3000e2c87386777ba8e3a78ffc5a853acf2
+Merge: 4d0b6d1 24bc3e0
+Author: ktn9 <ktn9@cornell.edu>
+Date:   Thu May 16 04:28:45 2024 -0400
+
+    Merge pull request #54 from ktn9/khoa
+    
+    Added comments for the ascii art functions
+
+commit 4d0b6d1d8f0fd1d378049a9b51d24ba8b3789b48
+Merge: c6d5602 466b4c8
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Thu May 16 04:28:06 2024 -0400
+
+    Merge pull request #53 from ktn9/kyle
+    
+    50 tests
+
+commit 24bc3e0e5c7ad8ef323960e5af4f2d9609123918
+Author: Khoa Nguyen <ktn9@cornell.edu>
+Date:   Thu May 16 04:27:56 2024 -0400
+
+    Added comments for the ascii art functions
+
+commit 466b4c88c2ed4919ffe034e9b50950b7292b1786
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Thu May 16 04:27:48 2024 -0400
+
+    50 tests
+
+commit c6d56020d7b4df0a2ff588b148601eaf7df7f635
+Merge: c35d534 8866a0f
+Author: ktn9 <ktn9@cornell.edu>
+Date:   Thu May 16 04:21:19 2024 -0400
+
+    Merge pull request #52 from ktn9/khoa
+    
+    Added more ascii art
+
+commit 8866a0f9f121fa8a585b101bf449ebd1455b3ca6
+Author: Khoa Nguyen <ktn9@cornell.edu>
+Date:   Thu May 16 04:20:51 2024 -0400
+
+    Added more ascii art
+
+commit c35d534d69b8cfcb5210f0d9efc993d5f34463a9
+Merge: fa89ab7 fd81ff1
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Thu May 16 04:10:27 2024 -0400
+
+    Merge pull request #51 from ktn9/kyle
+    
+    math tests
+
+commit fd81ff1399d74c2868955e82ec8789ff038172ba
+Merge: f97f881 fa89ab7
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Thu May 16 04:10:21 2024 -0400
+
+    Merge branch 'main' into kyle
+
+commit f97f881d497a8c667fa1273c902cf9a365f94ee1
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Thu May 16 04:07:24 2024 -0400
+
+    math tests
+
+commit fa89ab7dfa6f2ad94467123176fc0006158ad666
+Merge: a57ad3a ff4e2a8
+Author: Vail Chen <vac68@cornell.edu>
+Date:   Thu May 16 03:09:37 2024 -0400
+
+    Merge pull request #50 from ktn9/vail
+    
+    Fixes percentage calculator
+
+commit ff4e2a8d5f1753a9386680b511c741469e72435e
+Author: Vail <vac68@cornell.edu>
+Date:   Thu May 16 02:09:08 2024 -0500
+
+    Fixes percentage calculator
+    
+    - multiplies percentages by 100
+
+commit a57ad3aab384a57cef1c34b43f7697af95a95256
+Merge: 47e0166 9744003
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Thu May 16 03:07:07 2024 -0400
+
+    Merge pull request #49 from ktn9/kyle
+    
+    transactions tests done
+
+commit 9744003c0d94ea59e1c8df5a7a78cfe425d21e99
+Merge: 8267c7a 47e0166
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Thu May 16 03:06:54 2024 -0400
+
+    Merge branch 'main' into kyle
+
+commit 8267c7a8895ac6d43f5cd30de6e95e5da99fc547
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Thu May 16 03:06:36 2024 -0400
+
+    transactions tests done
+
+commit 47e0166aec1fa04960d5783ff20015aa13926aaf
+Merge: 17c42ec 8847d09
+Author: Vail Chen <vac68@cornell.edu>
+Date:   Thu May 16 02:44:26 2024 -0400
+
+    Merge pull request #48 from ktn9/vail
+    
+    Deletes unecessary line from users.csv
+
+commit 8847d099de27dbd816bc3b54dff6cca434abd430
+Author: Vail <vac68@cornell.edu>
+Date:   Thu May 16 01:44:01 2024 -0500
+
+    Deletes unecessary line from users.csv
+
+commit 17c42ecdecbd467bbfab13f60a3814e707a6e011
+Merge: 7030efd f973b91
+Author: Vail Chen <vac68@cornell.edu>
+Date:   Thu May 16 02:40:57 2024 -0400
+
+    Merge pull request #47 from ktn9/vail
+    
+    Fixes math.mli to accurately use encapsulation and finishes math.ml u…
+
+commit f973b9178b949888d18ca932120fee1f6e456c3c
+Author: Vail <vac68@cornell.edu>
+Date:   Thu May 16 01:40:23 2024 -0500
+
+    Fixes math.mli to accurately use encapsulation and finishes math.ml usage in main.ml
+    
+    - Deletes from mli to ensure encapsulation and adds consistency calculater to main from math.ml
+
+commit 7030efd7b877a1ece8c442860f8a199ee21765b4
+Merge: 6c389a2 5cef7b0
+Author: Vail Chen <vac68@cornell.edu>
+Date:   Thu May 16 02:22:40 2024 -0400
+
+    Merge pull request #46 from ktn9/vail
+    
+    Finishes implementation of math.ml in main.ml
+
+commit 5cef7b015db55ac7925303cbb02a3b0e37785993
+Author: Vail <vac68@cornell.edu>
+Date:   Thu May 16 01:20:52 2024 -0500
+
+    Finishes implementation of math.ml in main.ml
+    
+    - Adds all spending analyzers
+
+commit 6c389a22b8ab5e2899fd0c55bea9dd0bade7f9ab
+Merge: 04bb5ec 9c883b2
+Author: ktn9 <ktn9@cornell.edu>
+Date:   Thu May 16 01:45:33 2024 -0400
+
+    Merge pull request #45 from ktn9/khoa
+    
+    Added more ascii art
+
+commit 9c883b2fd1fc0f480af038e8c9e88cd8732cdeb4
+Merge: 72e23b7 04bb5ec
+Author: ktn9 <ktn9@cornell.edu>
+Date:   Thu May 16 01:45:26 2024 -0400
+
+    Merge branch 'main' into khoa
+
+commit 72e23b7633d601958c47b708bc87458767b67bd3
+Author: Khoa Nguyen <ktn9@cornell.edu>
+Date:   Thu May 16 01:44:47 2024 -0400
+
+    Trying to merge
+
+commit c7cf6f7636d3baec715d1937c91087befd0f5390
+Author: Khoa Nguyen <ktn9@cornell.edu>
+Date:   Thu May 16 01:43:19 2024 -0400
+
+    Added more ascii art
+
+commit 04bb5ecff152d1ca1c51165664e0c224d72698e9
+Merge: df2851a 02083c1
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Thu May 16 01:42:50 2024 -0400
+
+    Merge pull request #44 from ktn9/kyle
+    
+    Kyle
+
+commit df2851a7a0d6c4032e27338d7f9cf72a96a0ee71
+Merge: bb0fabd dec965d
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Thu May 16 01:42:05 2024 -0400
+
+    Merge pull request #43 from ktn9/kyle
+    
+    Kyle
+
+commit 02083c1169baa29df7a36ee51ae5f7e8db1aa4c4
+Merge: d536e75 dec965d
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Thu May 16 01:41:42 2024 -0400
+
+    Merge branch 'kyle' of github.coecis.cornell.edu:ktn9/cs3110_final_project into kyle
+
+commit d536e75e85e2325e3b1222044bae13f7b70f49ea
+Merge: de3edea bb0fabd
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Thu May 16 01:39:23 2024 -0400
+
+    merge issues
+
+commit dec965de50157bdc71d17ac7307a20c2f95569d0
+Merge: de3edea bb0fabd
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Thu May 16 01:37:56 2024 -0400
+
+    Merge branch 'main' into kyle
+
+commit de3edea72c8298694572590a66fd5cef301d4ab7
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Thu May 16 01:37:33 2024 -0400
+
+    fixed transaction tests
+
+commit bb0fabd7a17fc006054a566fab509557addad663
+Merge: 023719f 8e81926
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Thu May 16 01:34:27 2024 -0400
+
+    Merge pull request #41 from ktn9/vail
+    
+    Begins adding math functions to main
+
+commit 8e819269cb38f0e1d0a26bccd2141e6fabcd5795
+Merge: 7cf1563 023719f
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Thu May 16 01:34:16 2024 -0400
+
+    Merge branch 'main' into vail
+
+commit 7cf15637cdbfe3aac4cffb025b21ac0d9693d684
+Author: Vail <vac68@cornell.edu>
+Date:   Thu May 16 00:30:13 2024 -0500
+
+    Begins adding math functions to main
+    
+    - Adds to spend_analyzer
+
+commit 71fddef7c27cf125e5c274f64a27b7d18d5c7d39
+Merge: 023719f c8d755c
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Thu May 16 01:21:53 2024 -0400
+
+    Merge branch 'khoa' of github.coecis.cornell.edu:ktn9/cs3110_final_project into kyle
+
+commit 023719f6d613ecf9e4ff0c3218b24f2d59963d7b
+Merge: 79d978f 7716b75
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Thu May 16 01:21:23 2024 -0400
+
+    Merge pull request #40 from ktn9/kyle
+    
+    new transaction tests
+
+commit 7716b75b4f69be76e84ffd0cb13e1f44cd1ca299
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Thu May 16 01:21:03 2024 -0400
+
+    new transaction tests
+
+commit c8d755c644fcd847b3fceb2ba5be9598605d6dad
+Author: Khoa Nguyen <ktn9@cornell.edu>
+Date:   Thu May 16 01:16:58 2024 -0400
+
+    Added ascii art in main
+
+commit 79d978fa63b48e0e38d7188e196a62447fd8e4ed
+Merge: 728c416 fbcdbf3
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Thu May 16 00:57:25 2024 -0400
+
+    Merge pull request #39 from ktn9/kyle
+    
+    account.mli tests complete
+
+commit fbcdbf3e7fa8ffeecd301ca6b0b9fd7f061956a3
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Thu May 16 00:57:06 2024 -0400
+
+    account.mli tests complete
+
+commit 728c416d57315712d938eba5b56ff406b0c1e414
+Merge: f590d2d 154ef4b
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Thu May 16 00:48:27 2024 -0400
+
+    Merge pull request #38 from ktn9/kyle
+    
+    Kyle
+
+commit 154ef4b5ac54da1e914b336962185e6ddef4b508
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Thu May 16 00:48:07 2024 -0400
+
+    finished account.ml tests
+
+commit f590d2d1d710040c27101e1bc66c449452b4f452
+Merge: dfa6a44 597cdf7
+Author: ktn9 <ktn9@cornell.edu>
+Date:   Thu May 16 00:44:09 2024 -0400
+
+    Merge pull request #37 from ktn9/khoa
+    
+    Added test cases for transactions.ml
+
+commit 597cdf7c192f53658a89c98badc711b224ec7309
+Author: Khoa Nguyen <ktn9@cornell.edu>
+Date:   Thu May 16 00:43:41 2024 -0400
+
+    Added test cases for transactions.ml
+
+commit 3530ba57c8a9ff5cca7fc947be88a165214844ec
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Mon May 13 19:48:54 2024 -0400
+
+    no data
+
+commit dfa6a441d15c2a1246b3cfcea63f23e84c69b7bc
+Merge: 40d0f10 d5da604
+Author: ktn9 <ktn9@cornell.edu>
+Date:   Mon May 13 19:48:25 2024 -0400
+
+    Merge pull request #36 from ktn9/khoa
+    
+    Testing with command line
+
+commit d5da604c35e302450d91503f7116a7d219a0b88d
+Merge: 9f4c039 40d0f10
+Author: ktn9 <ktn9@cornell.edu>
+Date:   Mon May 13 19:48:19 2024 -0400
+
+    Merge branch 'main' into khoa
+
+commit 9f4c039d93d33abb0dcc5720e09a1445bebfcc05
+Author: Khoa Nguyen <ktn9@cornell.edu>
+Date:   Mon May 13 19:47:11 2024 -0400
+
+    Testing with command line
+
+commit 40d0f10e80098b0b8f22af47e7203af9ad2cc9f1
+Merge: eec8406 2798297
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Mon May 13 19:45:33 2024 -0400
+
+    Merge pull request #35 from ktn9/kyle
+    
+    recent
+
+commit 2798297b472b7c05d13469ff925cc9bfe0c7d2c7
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Mon May 13 19:15:14 2024 -0400
+
+    recent
+
+commit eec8406dbcca9b60ebfa91c5f9246715c411ecf4
+Merge: cce67f2 5859e43
+Author: ktn9 <ktn9@cornell.edu>
+Date:   Mon May 13 00:35:53 2024 -0400
+
+    Merge pull request #34 from ktn9/khoa
+    
+    Added some formatting to main
+
+commit 5859e437ee97681f7fb9834542a29b000f7165aa
+Author: Khoa Nguyen <ktn9@cornell.edu>
+Date:   Mon May 13 00:33:21 2024 -0400
+
+    Added some formatting to main
+
+commit cce67f202ae4298af3d86893ae75ff70c12d2c29
+Merge: 03ca31e c790b03
+Author: ktn9 <ktn9@cornell.edu>
+Date:   Mon May 13 00:05:56 2024 -0400
+
+    Merge pull request #33 from ktn9/khoa
+    
+    Added the spend analyzer functionality to main
+
+commit c790b0346fce123714fbfdff1d9137e5d9e4d7eb
+Author: Khoa Nguyen <ktn9@cornell.edu>
+Date:   Mon May 13 00:05:22 2024 -0400
+
+    Added the spend analyzer functionality to main
+
+commit 03ca31eb8e0679aee3dcaeb03670668db80541f1
+Merge: 073c288 32b3100
+Author: ktn9 <ktn9@cornell.edu>
+Date:   Sun May 12 23:32:35 2024 -0400
+
+    Merge pull request #32 from ktn9/khoa
+    
+    Handled errors with changing username and accessing the transaction f…
+
+commit 32b3100ea1be3805a976079951bdcf03340a8b80
+Author: Khoa Nguyen <ktn9@cornell.edu>
+Date:   Sun May 12 23:32:05 2024 -0400
+
+    Handled errors with changing username and accessing the transaction file associated to that account
+
+commit 073c288e75f0375a74bd409796af12936bc70083
+Merge: f05804f cc7e748
+Author: ktn9 <ktn9@cornell.edu>
+Date:   Sun May 12 22:38:57 2024 -0400
+
+    Merge pull request #31 from ktn9/khoa
+    
+    Added documentation for function home in main
+
+commit cc7e748ba5522113869495f848fd031a0021baa0
+Author: Khoa Nguyen <ktn9@cornell.edu>
+Date:   Sun May 12 22:38:35 2024 -0400
+
+    Added documentation for function home in main
+
+commit f05804f3c882b014e86b784017979f6165884dfe
+Merge: fca52c3 1304528
+Author: ktn9 <ktn9@cornell.edu>
+Date:   Sat May 11 22:35:53 2024 -0400
+
+    Merge pull request #30 from ktn9/khoa
+    
+    Added a function in transactions to return the list of all transactio…
+
+commit 1304528827f856b9df1bbdc73b2017f497994857
+Author: Khoa Nguyen <ktn9@cornell.edu>
+Date:   Sat May 11 22:35:26 2024 -0400
+
+    Added a function in transactions to return the list of all transaction values for a user
+
+commit fca52c3dc0173df432439dde4ca0d7e25b61343c
+Merge: 3223dbe b40637f
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 22:34:20 2024 -0400
+
+    Merge pull request #29 from ktn9/kyle
+    
+    FIXED ALL THE TESTS
+
+commit b40637fd99f2440af7246a1616e2f47a0bac430c
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 22:34:05 2024 -0400
+
+    FIXED ALL THE TESTS
+
+commit 3223dbe3a02b843bb1ffcdbebc3791f49b9d263a
+Merge: ec4be09 e8f1097
+Author: Vail Chen <vac68@cornell.edu>
+Date:   Sat May 11 22:16:56 2024 -0400
+
+    Merge pull request #28 from ktn9/vail
+    
+    Adds brb items
+
+commit ec4be09103eceb14ebc686114a4b144698ef14e8
+Merge: 1a927f3 e3f6831
+Author: ktn9 <ktn9@cornell.edu>
+Date:   Sat May 11 22:14:28 2024 -0400
+
+    Merge pull request #27 from ktn9/khoa
+    
+    Added a home functionality to the app and allows users to manage thei…
+
+commit e3f68311fa2ee673817b635a0bf2ce573bea88b1
+Author: Khoa Nguyen <ktn9@cornell.edu>
+Date:   Sat May 11 22:13:32 2024 -0400
+
+    Added a home functionality to the app and allows users to manage their account information
+
+commit e8f10978e05c9a34ad46c1fd26c0fc9c6cf850ca
+Author: Vail <vac68@cornell.edu>
+Date:   Sat May 11 22:05:01 2024 -0400
+
+    Adds brb items
+    
+    - adds list of favorite brb items and function to select one at random, edits math.ml and math.mli
+
+commit 1a927f35b558b9b1334ffad61df283d4d95eb535
+Merge: 832d4c1 28db039
+Author: Vail Chen <vac68@cornell.edu>
+Date:   Sat May 11 21:30:09 2024 -0400
+
+    Merge pull request #26 from ktn9/vail
+    
+    Vail
+
+commit 28db039998e5a3ba6b372c874a792ac998438da2
+Author: Vail <vac68@cornell.edu>
+Date:   Sat May 11 21:29:32 2024 -0400
+
+    Fixes math.ml
+    
+    - Deletes rec tag
+
+commit 9ec37517c1ad936a439456ea2c148f8814273c03
+Author: Vail <vac68@cornell.edu>
+Date:   Sat May 11 21:19:00 2024 -0400
+
+    Adds more functions to math.ml
+    
+    Adds more calculations
+
+commit 832d4c1c2458df411d8e4b3756bc83b771d7b78a
+Merge: a10d5c5 e4339bc
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 20:57:56 2024 -0400
+
+    Merge pull request #25 from ktn9/kyle
+    
+    small change to main
+
+commit e4339bcccbaa7cf75eeb32b5d9b06efea966c78a
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 20:57:38 2024 -0400
+
+    small change to main
+
+commit a355a4f11973581e647f86062cf30dda4415b816
+Author: Vail <vac68@cornell.edu>
+Date:   Sat May 11 20:56:28 2024 -0400
+
+    Implements rest of math.ml file
+    
+    - Adds more math functions
+
+commit a10d5c51777b0bc1b897583accf2b46f73f6b9b4
+Merge: d418a58 c86154f
+Author: ktn9 <ktn9@cornell.edu>
+Date:   Sat May 11 20:53:30 2024 -0400
+
+    Merge pull request #24 from ktn9/khoa
+    
+    Added more functions to the account compilation unit that allows user…
+
+commit c86154ff89f61ddbc5d1b9094ca3326a025ae593
+Author: Khoa Nguyen <ktn9@cornell.edu>
+Date:   Sat May 11 20:52:26 2024 -0400
+
+    Added more functions to the account compilation unit that allows users to change their username, password, and add funds to their balance
+
+commit d418a58c7ef6688219dcbda56fdc8d54a8fe6d47
+Merge: 8170518 10b7f9d
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 20:49:59 2024 -0400
+
+    Merge pull request #23 from ktn9/kyle
+    
+    new tests
+
+commit 10b7f9d4d4256ffb1a1ff65917f20ff39e714e1c
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 20:49:26 2024 -0400
+
+    new tests
+
+commit 81705181bec0374c0da7f784e169ef8c7f6de083
+Merge: 9a74ea0 9bddaba
+Author: ktn9 <ktn9@cornell.edu>
+Date:   Sat May 11 20:37:06 2024 -0400
+
+    Merge pull request #22 from ktn9/khoa
+    
+    Added functionality to view current balance and deduct balance whenev…
+
+commit 9bddaba389de33328089dff6c4a9852357eb555e
+Author: Khoa Nguyen <ktn9@cornell.edu>
+Date:   Sat May 11 20:36:23 2024 -0400
+
+    Added functionality to view current balance and deduct balance whenever transaction is added
+
+commit 9a74ea01575a3975cf529c33da8b9409044b0dc5
+Merge: c8eef4c 18b9108
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 19:16:33 2024 -0400
+
+    Merge pull request #21 from ktn9/kyle
+    
+    more tests
+
+commit 18b9108a6a5e7875a6c254e7238130974d6f7a67
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 19:16:16 2024 -0400
+
+    more tests
+
+commit c8eef4cd1a807b0049f55b82e3f8705b47ca9eb3
+Merge: 9f13ff4 003c9dd
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 15:29:24 2024 -0400
+
+    Merge pull request #20 from ktn9/kyle
+    
+    added .mli documentation
+
+commit 003c9dd988d0f3a74bba680b3345e3d9350f9ccd
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 15:28:49 2024 -0400
+
+    added .mli documentation
+
+commit 9f13ff43a046832a6f936821fcc1fa107a3333ab
+Merge: f9a43af bd3fd04
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 15:14:41 2024 -0400
+
+    Merge pull request #19 from ktn9/kyle
+    
+    fixed account.ml
+
+commit bd3fd04bfc93806cf2942f0327ddcfa365baa336
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 15:14:23 2024 -0400
+
+    fixed account.ml
+
+commit f9a43af161b3f33b78517273856d71db84002dc0
+Merge: bb47672 9da5c61
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 15:11:49 2024 -0400
+
+    Merge pull request #18 from ktn9/vail
+    
+    Vail
+
+commit 9da5c6125dcd8531635fa2715abf5935b69db80e
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 15:09:51 2024 -0400
+
+    added helper functions for account and transactions
+
+commit 94e14da16cea18c79fd134d66bcba8d5b0f97933
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 15:00:33 2024 -0400
+
+    new
+
+commit 5a8db249d6a16832b7dfdeec42fd8dd86e8dbd07
+Merge: 452ac6e bb47672
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 14:53:35 2024 -0400
+
+    math.ml into new functional code
+
+commit bb47672e1de7dcc39494aa8c099d2aec77aaa1d7
+Merge: 8860092 27e83e1
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 14:47:25 2024 -0400
+
+    Merge pull request #17 from ktn9/kyle
+    
+    main
+
+commit 27e83e10cfb2192265e90ef24d650aa7c7197e1c
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 14:47:11 2024 -0400
+
+    main
+
+commit 8860092624097c5ca87d6aad58bf5f88adfe6a54
+Merge: 7caf7ab 44372bc
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 12:30:21 2024 -0400
+
+    Merge pull request #16 from ktn9/kyle
+    
+    added new tests
+
+commit 44372bcffe80e48c04bc6d1ef4f2ec48ba91e56c
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 12:30:01 2024 -0400
+
+    added new tests
+
+commit 7caf7ab6cc9302d4c4505ab5e8b2a1308b748725
+Merge: 42d89ab 2de8903
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 03:43:32 2024 -0400
+
+    Merge pull request #15 from ktn9/kyle
+    
+    FULLY WORKING
+
+commit 2de890304eb13a4f60c8d65efb8d0e797572ae99
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 03:43:12 2024 -0400
+
+    FULLY WORKING
+
+commit 42d89aba6823a1e8eb60143e6283ed3df6060f9a
+Merge: 6d05921 67ae9dc
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 03:40:56 2024 -0400
+
+    Merge pull request #14 from ktn9/kyle
+    
+    functional
+
+commit 67ae9dc99033f1fddef9dbe2a43bc194d635047c
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 03:40:34 2024 -0400
+
+    functional
+
+commit 6d05921b9071980339a6b242a65acd9c512165f9
+Merge: 7e4e9ec a722a4a
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 03:37:51 2024 -0400
+
+    Merge pull request #13 from ktn9/kyle
+    
+    test
+
+commit a722a4abecaabdd748cc49d103961f321585de84
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 03:37:35 2024 -0400
+
+    test
+
+commit 7e4e9ecd3b7f832bfdd43af9df7469f7ede17494
+Merge: 3c80d97 9c9cb18
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 03:34:42 2024 -0400
+
+    Merge pull request #12 from ktn9/khoa
+    
+    Khoa
+
+commit 9c9cb18a147553d2f4b4f9483683ac0a1ecb2c8b
+Merge: a6b7a14 b77ff6e
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 03:33:56 2024 -0400
+
+    reset
+
+commit a6b7a14e567b36eeaf2551d5aa48dee42acdd2bd
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 03:32:28 2024 -0400
+
+    test
+
+commit 3c80d978677663a52c8d75a8a651657572df1e5f
+Merge: 3386a76 b77ff6e
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 03:31:17 2024 -0400
+
+    Merge pull request #11 from ktn9/khoa
+    
+    Khoa
+
+commit b77ff6e33046f58b44b79d29b265dfecdf72448b
+Merge: 409700f ab47cbe
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 03:24:55 2024 -0400
+
+    Merge branch 'main' into khoa
+
+commit ab47cbef35d0bde63f8868a2b8c7912409e0bd4a
+Merge: 5a5b245 3386a76
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 03:24:24 2024 -0400
+
+    Merge pull request #10 from ktn9/kyle
+    
+    delete csv files
+
+commit 409700ff2485f2219898bf9c90a9936655d4ca3b
+Merge: 61ab40e 5a5b245
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 03:22:24 2024 -0400
+
+    Merge branch 'main' of github.coecis.cornell.edu:ktn9/cs3110_final_project into khoa
+
+commit 3386a76f6579ef8d0418b9b7344c6fd595341f40
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 03:19:29 2024 -0400
+
+    delete csv files
+
+commit 61ab40e1d6ee0df8f22667581ff500fde5a1866b
+Author: Khoa Nguyen <ktn9@cornell.edu>
+Date:   Sat May 11 03:09:46 2024 -0400
+
+    Testing
+
+commit 5a5b2452ffab1162383b6fdf1fb906dbb55fce10
+Merge: 85ebaf3 3571298
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 02:59:25 2024 -0400
+
+    Merge pull request #9 from ktn9/kyle
+    
+    fixing main
+
+commit 3571298a9611e020b8cac2c986275240461aec94
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 02:57:00 2024 -0400
+
+    fixing main
+
+commit 85ebaf33428d4c8183d7e2d32b0a5a6bd935a17b
+Merge: 66be48b 85032ec
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 02:47:01 2024 -0400
+
+    Merge pull request #7 from ktn9/kyle
+    
+    fix main
+
+commit 85032ec0ac7776bbf968d967181671bf9247e98f
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 02:46:39 2024 -0400
+
+    fix main
+
+commit 452ac6e4328825392111ac6b7cb351f48ead9385
+Author: Vail <vac68@cornell.edu>
+Date:   Sat May 11 02:34:22 2024 -0400
+
+    Adds more to math file
+    
+    - Adds functions for choosing random brb vender, adds desirability function, and more list functions
+
+commit 66be48beeda19c8f1cc5b513a491cb853fe1663a
+Merge: 751c764 c4c8850
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 00:03:46 2024 -0400
+
+    Merge pull request #6 from ktn9/vail
+    
+    Vail
+
+commit c4c88501d095f9536544ed027d5842b98870e4e0
+Author: Vail <vac68@cornell.edu>
+Date:   Sat May 11 00:03:26 2024 -0400
+
+    Adds functions to math.ml
+    
+    - Starts working on averaging lists, choosing random numbers, etc.
+
+commit 751c764a6f287e611e6d5c45a227f70e3cc2ed6e
+Merge: 0392406 bd6d51d
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 00:01:26 2024 -0400
+
+    Merge pull request #5 from ktn9/kyle
+    
+    Kyle
+
+commit bd6d51dd15f2e83544a07a53d22717c16361f310
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Sat May 11 00:01:07 2024 -0400
+
+    fixes
+
+commit a4b02c8e2eb0db38e16cf15c61be78b4eef2e207
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Fri May 10 23:52:17 2024 -0400
+
+    transactions id increment by 1
+
+commit 0392406999683a475e072a7ff712df42794c751d
+Merge: 424afd9 b5dad06
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Fri May 10 23:39:03 2024 -0400
+
+    Merge pull request #4 from ktn9/kyle
+    
+    main fixed
+
+commit b5dad06868bde67d3581805b72673bb8b8e27650
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Fri May 10 23:38:46 2024 -0400
+
+    main fixed
+
+commit 424afd9c19f2878895119b4705e714920bf05d58
+Merge: 3a99354 6612ff7
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Fri May 10 23:30:07 2024 -0400
+
+    Merge pull request #3 from ktn9/kyle
+    
+    fixed main
+
+commit 6612ff7b328298aa65cd3aa1f8789ffae62acbab
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Fri May 10 23:28:52 2024 -0400
+
+    fixed main
+
+commit c5f89076acbaeb8a3ec5debf2315aa8a21df522d
+Author: Vail <vac68@cornell.edu>
+Date:   Fri May 10 23:27:48 2024 -0400
+
+    Adds Vails branch for math
+    
+    - Adds
+
+commit 5c2268517d8452196dbe503a9e2200b4176cd6fb
+Author: Khoa Nguyen <ktn9@cornell.edu>
+Date:   Fri May 10 23:27:47 2024 -0400
+
+    Implemented transactions management in main
+
+commit 3a99354eb95a9fea36f9b7404df257ac84fb3189
+Merge: 8866dae 6f09654
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Fri May 10 23:17:45 2024 -0400
+
+    Merge pull request #2 from ktn9/kyle
+    
+    Updated transactions, tests, and account
+
+commit 6f0965417282cd36566e3a70254ac7511c53dbde
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Fri May 10 23:14:04 2024 -0400
+
+    todo: fix up main
+
+commit 4457ed5bc435861b761362ddac91c470a53e150f
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Fri May 10 23:01:42 2024 -0400
+
+    merged new changes in transactions.ml
+
+commit c621d710f1f7f5a335281f8fb0745adaf09855d0
+Author: Khoa Nguyen <ktn9@cornell.edu>
+Date:   Fri May 10 22:56:28 2024 -0400
+
+    Implemented transactions management in main () to use functions from transactions
+
+commit 35b1d7ae7f33a62ffd87b09d27e51eeeb1acf75c
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Fri May 10 22:53:55 2024 -0400
+
+    added test case file
+
+commit 8866dae4c6043fdca5ba8e6fb746df4a065b8bcf
+Merge: fbafc62 9774dc6
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Fri May 10 22:15:49 2024 -0400
+
+    Merge pull request #1 from ktn9/kyle
+    
+    transactions new features
+
+commit fbafc62ccaa5496da8311855e1be25a317abb5b3
+Author: Khoa Nguyen <ktn9@cornell.edu>
+Date:   Fri May 10 22:15:04 2024 -0400
+
+    Implemented some more functions for transactions compilation unit
+
+commit 9774dc63cae6b31deb0fbc4a5a9828930251f28e
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Fri May 10 22:13:45 2024 -0400
+
+    transactions new features
+
+commit 580b2d8cde64f97cba62c4b0b8e24bb9d4c68bb9
+Author: Khoa Nguyen <ktn9@cornell.edu>
+Date:   Fri May 10 21:53:23 2024 -0400
+
+    Created transactions compilation unit
+
+commit 9116e68366456aed968a1eb438acaf9cf1169ec1
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Fri May 10 21:02:55 2024 -0400
+
+    data files
+
+commit 15cee36925bf5912ef8f6e10de35e4e103cce043
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Fri May 10 20:52:10 2024 -0400
+
+    csv
+
+commit a1e53c0799af736bd2020fa2c17af4c956640b08
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Tue Apr 9 14:23:28 2024 -0400
+
+    demo ready
+
+commit 6c9512864e0280eb884b4cc93b30cc453c92b70d
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Tue Apr 9 14:16:08 2024 -0400
+
+    .ocamlformat, .gitignore, login_db.ml changes
+
+commit cec400ea18e7a5621b8f18cea4b90fcf80f88fae
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Mon Apr 8 14:01:40 2024 -0400
+
+    create table function implemented
+
+commit 80ef33c6c167fee5af2c09eda8e27d0593ab96a2
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Mon Apr 8 13:34:43 2024 -0400
+
+    account database library
+
+commit b264c46bb0461690cef2f3236797c96254e30697
+Author: Khoa Nguyen <ktn9@cornell.edu>
+Date:   Thu Mar 28 22:50:46 2024 -0400
+
+    Fixing last names
+
+commit 0a5e116197c8fa924d1789c561589e7a6de06da5
+Author: Khoa Nguyen <ktn9@cornell.edu>
+Date:   Thu Mar 28 22:45:50 2024 -0400
+
+    Edits to INSTALL.txt
+
+commit a9a554e81a64c38e98fa12654becd6c1313a371d
+Author: Vail <vac68@cornell.edu>
+Date:   Thu Mar 28 22:40:01 2024 -0400
+
+    fixed the INSTALL.txt file
+
+commit 47259891ca6910ed9031d8f4dea14d3de0471b41
+Author: Vail <vac68@cornell.edu>
+Date:   Thu Mar 28 22:27:14 2024 -0400
+
+    added INSTALL.txt file
+
+commit 50faaa41878e26561a17a03386b7cd6d7e120cb7
+Author: Vail <vac68@cornell.edu>
+Date:   Thu Mar 28 21:57:04 2024 -0400
+
+    Added YAML file
+
+commit 87306b7cc902d4c86b3a284e7785a064d77b4fd6
+Author: Vail <vac68@cornell.edu>
+Date:   Thu Mar 28 21:43:30 2024 -0400
+
+    Updated specifications for all functions
+
+commit d6a633df3997937ecc33aab53ffeffdd8be02a02
+Author: Vail <vac68@cornell.edu>
+Date:   Wed Mar 27 02:05:29 2024 -0400
+
+    added comment for actions function
+
+commit bc009bed3d4048a347f2386a9e6d11ad4d3536ff
+Author: Vail <vac68@cornell.edu>
+Date:   Wed Mar 27 02:04:22 2024 -0400
+
+    Added more actions and fixed never ending code issue
+
+commit 5a9209b24b82cb02cd96b13e198ebc08dfd288ab
+Author: Vail <vac68@cornell.edu>
+Date:   Wed Mar 27 01:49:04 2024 -0400
+
+    added user names and passwords
+
+commit c9d1a7f40e5e055501e3bf5ac62587d545467ce9
+Author: Vail <vac68@cornell.edu>
+Date:   Tue Mar 26 00:08:09 2024 -0400
+
+    Add simple user input
+
+commit d51bea5a53bec208925ae0b9e354d93c4e8ad4a7
+Author: Vail <vac68@cornell.edu>
+Date:   Tue Mar 12 21:14:29 2024 -0400
+
+    Vail's changes
+
+commit 53e9ba0afdd60dcdcd9ba81ae540ba2086e7087f
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Tue Mar 12 15:39:27 2024 -0400
+
+    Update README.md
+
+commit e3316343b75c19671b3681c26848e2ad806ad476
+Author: Kyle Chu <kgc42@cornell.edu>
+Date:   Tue Mar 12 15:38:48 2024 -0400
+
+    Update README.md
+
+commit 111fdac6597d610bd81e0f1d51f694f1084a1c10
+Author: ktn9 <ktn9@cornell.edu>
+Date:   Tue Mar 12 14:22:37 2024 -0400
+
+    Create README.md
+
+commit 57c71d7bcdf51b5672fe0fb8f392804e19a1d148
+Author: Khoa Nguyen <ktn9@cornell.edu>
+Date:   Tue Mar 12 14:14:05 2024 -0400
+
+    Initial commit
