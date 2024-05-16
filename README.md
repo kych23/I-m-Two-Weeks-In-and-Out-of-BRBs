@@ -12,7 +12,6 @@ Our project is a comprehensive tool that helps users manage their BRB finances
 ### Dependencies
 
 ```
-* opam install ounit2
 * opam install csv
 ```
 
