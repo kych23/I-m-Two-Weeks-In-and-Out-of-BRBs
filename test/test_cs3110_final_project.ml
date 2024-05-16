@@ -237,6 +237,31 @@ let test_account =
               txns_file = get_acc_txns_file updated_acc;
             };
           ]) );
+    (* ------------------------ TESTS add_funds ----------------------- *)
+    ( "add_funds : adds funds to user that exists" >:: fun _ ->
+      let test_csv_file = create_empty_csv "../../../data/" "test_users9.csv" in
+      let accounts = load_accounts test_csv_file in
+      let test_acc_1 = create_account 100.00 "TEST" "TEST" in
+      let updated_accounts = add_account test_acc_1 accounts in
+      save_accounts test_csv_file updated_accounts;
+      let accounts = load_accounts test_csv_file in
+      let updated_acc = add_funds test_acc_1 50.00 in
+      let updated_accounts =
+        delete_account (get_acc_username test_acc_1) accounts
+      in
+      let updated_accounts = add_account updated_acc updated_accounts in
+      let _ = save_accounts test_csv_file updated_accounts in
+      let _ = delete_csv_file test_csv_file in
+      assert_equal true
+        (updated_accounts
+        = [
+            {
+              balance = ref 150.00;
+              username = get_acc_username updated_acc;
+              password = get_acc_password updated_acc;
+              txns_file = get_acc_txns_file updated_acc;
+            };
+          ]) );
   ]
 
 let test_transactions =

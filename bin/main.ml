@@ -30,7 +30,7 @@ let manage_transactions username =
         (try
            transactions := add_transaction new_transaction !transactions;
            let new_transaction_amount = amount in
-           (* find a way to get the account list from the csv file *)
+           (* find a way to get the account list fr3om the csv file *)
            let acc_list = ref (load_accounts "data/users.csv") in
            let old_acc = find_account username !acc_list in
            let curr_balance = get_acc_bal old_acc in
