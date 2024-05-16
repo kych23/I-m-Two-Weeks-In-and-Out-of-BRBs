@@ -71,11 +71,11 @@ let rec get_element_helper lst index count =
 let get_element lst index = get_element_helper lst index 0
 
 (* [get_brb_spot] returns a random brb spot *)
-let get_brb_spot =
+let get_brb_spot () =
   let random_spot = choose_number_from_list brb_venders in
   get_element brb_venders random_spot
 
-let get_brb_item =
+let get_brb_item () =
   let random_item = choose_number_from_list brb_items in
   get_element brb_items random_item
 
