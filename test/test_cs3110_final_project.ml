@@ -2,8 +2,6 @@ open OUnit2
 open Cs3110_final_project.Account
 open Cs3110_final_project.Transactions
 
-(* open Cs3110_final_project.Transaction *)
-
 (* Function to delete a file *)
 let delete_csv_file file_path =
   try
@@ -266,20 +264,24 @@ let test_account =
 
 let test_transactions =
   [
-    (* Test for creating a transaction *)
-    ( "create_transaction" >:: fun _ ->
+    (* ---------------------- TESTS create_transaction ---------------------- *)
+    ( "create_transaction : creates a new valid transaction" >:: fun _ ->
       let txn = create_transaction "2024-05-16" 100.0 "Food" in
       assert_equal (get_txn_date txn) "2024-05-16";
       assert_equal (get_txn_amt txn) 100.0;
       assert_equal (get_txn_category txn) "Food" );
     (* Test for adding a transaction *)
-    ( "add_transaction" >:: fun _ ->
+    ( "add_transaction : adds a transaction to a transaction file" >:: fun _ ->
+      let test_csv_file = create_empty_csv "../../../data/" "test_user1.csv" in
+      let transactions = load_transactions test_csv_file in
       let txn1 = create_transaction "2024-05-16" 100.0 "Food" in
       let txn2 = create_transaction "2024-05-17" 200.0 "Transport" in
-      let transactions = add_transaction txn1 [] in
-      let transactions = add_transaction txn2 transactions in
+      let upd_txns = add_transaction txn2 (add_transaction txn1 transactions) in
+      save_transactions test_csv_file upd_txns;
+      let transactions = load_transactions test_csv_file in
+      let _ = delete_csv_file test_csv_file in
       assert_equal 2 (List.length transactions);
-      assert_equal "2024-05-17" (get_txn_date (List.hd transactions)) );
+      assert_equal true (transactions = [ txn2; txn1 ]) );
     (* Test for summing transactions *)
     ( "sum_transactions" >:: fun _ ->
       let txn1 = create_transaction "2024-05-16" 100.0 "Food" in
