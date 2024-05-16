@@ -117,6 +117,17 @@ let days_until_broke_art () =
   in
   print_endline art
 
+let transactions_art () =
+  let art =
+    "\n\
+    \ ____  ____   __   __ _  ____   __    ___  ____  __  __   __ _  ____ \n\
+     (_  _)(  _ \\ / _\\ (  ( \\/ ___) / _\\  / __)(_  _)(  )/  \\ (  ( \\/ ___)\n\
+    \  )(   )   //    \\/    /\\___ \\/    \\( (__   )(   )((  O )/    /\\___ \\\n\
+    \ (__) (__\\_)\\_/\\_/\\_)__)(____/\\_/\\_/ \\___) (__) (__)/\\__/ \
+     \\_)__)(____/\n"
+  in
+  print_endline art
+
 (** [user_filepath username] returns filename data/[username].csv *)
 let user_filepath username = "data/" ^ username ^ ".csv"
 
@@ -169,6 +180,7 @@ let manage_transactions username =
         save_transactions (user_filepath username) !transactions;
         options ()
     | "2" -> begin
+        transactions_art ();
         let () = view_transactions !transactions in
         options ()
       end
