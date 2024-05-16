@@ -4,13 +4,11 @@ let () = Random.self_init ()
 
 exception DivideByZero
 
-(** [sum lst] returns the sum of the values in [lst] *)
 let rec sum (lst : float list) =
   match lst with
   | [] -> 0.0
   | h :: t -> h +. sum t
 
-(** [average lst] returns the average value of the entries in [lst] *)
 let average_list (lst : float list) : float =
   let summation = sum lst in
   let number = float_of_int (List.length lst) in
@@ -18,15 +16,12 @@ let average_list (lst : float list) : float =
   else if summation = 0.0 then 0.0
   else summation /. number
 
-(** [average_over_days_list lst days] returns the division of the sum of the
-    entries in [lst] divided by [days] *)
 let average_over_days_list (lst : float list) days =
   if days = 0.0 then raise DivideByZero
   else
     let summation = sum lst in
     summation /. days
 
-(** [brb_venders] is a list of all places on Cornell's campus that accept brbs *)
 let brb_venders =
   [
     "Trillium";
@@ -44,8 +39,6 @@ let brb_venders =
     "Jansen's";
   ]
 
-(** [brb_items] is a list of our favorite items on campus that can be purchased
-    with brbs *)
 let brb_items =
   [
     "Trillium Burger";
@@ -58,7 +51,6 @@ let brb_items =
     "Jansen's Southwest Chicken Sub";
   ]
 
-(* [choose_number_from_list lst] randomly chooses an index in [lst]*)
 let choose_number_from_list lst =
   let length = List.length lst in
   Random.int length
@@ -73,8 +65,6 @@ let rec get_element_helper lst index count =
 (** [get_element lst index] returns the element at index [index] in list [lst]*)
 let get_element lst index = get_element_helper lst index 0
 
-
-(** [get_brb_spot] returns a random brb spot *)
 let get_brb_spot () =
   let random_spot = choose_number_from_list brb_venders in
   get_element brb_venders random_spot
@@ -83,17 +73,10 @@ let get_brb_item () =
   let random_item = choose_number_from_list brb_items in
   get_element brb_items random_item
 
-
-(** [desirability probability] generates a random integer from 0 to 100 and
-    returns whether or not [probability] is greater than the random number*)
 let desirability probability =
   let random_number = Random.int 101 in
   probability > random_number
 
-(** [desire_relative balance price probability] generates a random integer from
-    0 to 100 and scales [probability] by how big [price] is relative to
-    [balance], then calculates whether or not this scaled number is greater than
-    the random number calculated *)
 let desire_relative balance price probability =
   let random_number = Random.int 101 in
   let scaled_probability =
@@ -101,9 +84,6 @@ let desire_relative balance price probability =
   in
   scaled_probability > float_of_int random_number
 
-
-(** [optimize_future_spending balance days] calculates how much money can be
-    spent per day given the remaining balance [balance] over days [days]*)
 let optimize_future_spending balance days =
   if days = 0.0 then raise DivideByZero
   else
@@ -111,9 +91,11 @@ let optimize_future_spending balance days =
     per_day
 
 let rate_of_spending starting ending days =
-  let money_spent = starting -. ending in
-  let rate = money_spent /. days in
-  rate
+  if days = 0.0 then raise DivideByZero
+  else
+    let money_spent = starting -. ending in
+    let rate = money_spent /. days in
+    rate
 
 let days_until_broke starting ending days_passed =
   let rate = rate_of_spending starting ending days_passed in
