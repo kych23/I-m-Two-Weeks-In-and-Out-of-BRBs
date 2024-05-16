@@ -1,9 +1,3 @@
-val last_day : int
-(** Approximation for the amount of days in a school year. *)
-
-val sum : float list -> float
-(** Returns the sum of the values in a float list. *)
-
 val average_list : float list -> float
 (** Returns the average value of the entries in a float list. *)
 
@@ -17,12 +11,6 @@ val brb_venders : string list
 val brb_items : string list
 (** List of our favorite items on Cornell's campus that can be purchased using
     brbs. *)
-
-val choose_number_from_list : 'a list -> int
-(** Randomly chooses an index in a list. *)
-
-val get_element : 'a list -> int -> 'a
-(** Returns the element at a specified index in a list. *)
 
 val get_brb_spot : unit -> string
 (** Returns a random brb spot. *)

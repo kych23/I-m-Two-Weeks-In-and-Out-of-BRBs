@@ -389,22 +389,29 @@ let rec spend_analyzer username =
         in
         print_endline
           ("You need " ^ string_of_float brb_needed
-         ^ "BRBs to support your current spending habits.")
+         ^ " more BRBs to support your current spending habits.")
       end
     | "8" -> begin
         print_endline "How many BRBs did you begin with? (Float please)";
         let starting = read_line () in
         print_endline "How many days have passed? (Float please!)";
         let days_passed = read_line () in
-        print_endline "How many days are left to spend BRBs? (Float please!)";
-        let days_remaining = read_line () in
+        print_endline "What day would you like to analyze? (YYYY-MM-DD)";
+        let date = read_line () in
+        let day_transactions =
+          filter_transactions_by_date
+            (load_transactions (user_filepath username))
+            date date
+        in
+        let day_amount = sum_transactions day_transactions in
+        let was_it_consistent =
+          consistent_day (float_of_string starting) acc_balance day_amount
+            (float_of_string days_passed)
+        in
         print_endline
-          ("You need "
-          ^ string_of_float
-              (calculate_money_needed (float_of_string starting) acc_balance
-                 (float_of_string days_passed)
-                 (float_of_string days_remaining))
-          ^ " more BRBs to support your current spending habits.")
+          ("Our calculator on if you're transactions for day " ^ date
+         ^ " were consistent with previous spendings"
+          ^ string_of_bool was_it_consistent)
       end
     | "9" -> begin
         print_endline "How many BRBs did you start with? (Float Please)";
