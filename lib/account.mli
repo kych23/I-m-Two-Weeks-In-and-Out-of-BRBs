@@ -38,7 +38,8 @@ val update_account : account -> account list -> account list
 
 val delete_account : string -> account list -> account list
 (** [delete_account usrnm acc_list] deletes the account with username [usrnm]
-    from the account list [acc_list] *)
+    from the account list [acc_list]. Raises exception [AccountNotFound] if acc
+    was not already in the list *)
 
 val get_acc_bal : account -> float
 (** [get_acc_bal account] returns the accounts balance *)
@@ -58,8 +59,8 @@ val add_funds : account -> float -> account
 
 val change_password : account -> string -> account
 (** [change_password account new_pw] is the [account] with a new password which
-    is [new_pw] *)
+    is [new_pw]. Invariant: [account] must exist *)
 
 val change_username : account -> string -> account
 (** [change_username account new_name] is the same [account] with an updated
-    username that is [new_name] *)
+    username that is [new_name]. Invariant: [account] must exist *)

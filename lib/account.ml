@@ -65,6 +65,7 @@ let update_account updated_acc accounts =
   :: List.filter (fun acc -> acc.username <> updated_acc.username) accounts
 
 let delete_account username accounts =
+  ignore (find_account username accounts);
   List.filter (fun acc -> acc.username <> username) accounts
 
 let add_funds account extra =
