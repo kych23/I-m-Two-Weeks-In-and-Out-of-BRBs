@@ -401,13 +401,24 @@ let test_math =
       assert_equal true (days_until_broke 100.0 0.0 10.0 = 0.0) );
     (* --------------- TESTS calculate_percentages_category ----------------- *)
     ( "calculate_percentages_category : integers " >:: fun _ ->
-      assert_equal true (days_until_broke 160.0 60.0 5.0 = 3.0) );
+      assert_equal true (calculate_percentages_category 100.0 5.0 = 5.) );
     ( "calculate_percentages_category : floats " >:: fun _ ->
-      assert_equal true (days_until_broke 500.0 50.0 4.5 = 0.5) );
+      assert_equal true (calculate_percentages_category 100.0 7.5 = 7.5) );
     ( "calculate_percentages_category : 0 days " >:: fun _ ->
-      assert_raises DivideByZero (fun () -> days_until_broke 105.0 0.0 0.0) );
+      assert_raises DivideByZero (fun () ->
+          calculate_percentages_category 0.0 10.0) );
     ( "calculate_percentages_category : 0 balance " >:: fun _ ->
-      assert_equal true (days_until_broke 100.0 0.0 10.0 = 0.0) );
+      assert_equal true (calculate_percentages_category 10.0 0.0 = 0.0) );
+    (* ------------------ TESTS calculate_money_needed ---------------------- *)
+    ( "calculate_money_needed : integers " >:: fun _ ->
+      assert_equal true (calculate_money_needed 160.0 60.0 5.0 9.0 = 120.0) );
+    ( "calculate_money_needed : floats " >:: fun _ ->
+      assert_equal true (calculate_money_needed 500.0 50.0 4.5 3.0 = 250.0) );
+    ( "calculate_money_needed : 0 days " >:: fun _ ->
+      assert_raises DivideByZero (fun () ->
+          calculate_money_needed 100.0 0.0 0.0 1.0) );
+    ( "calculate_money_needed : 0 balance " >:: fun _ ->
+      assert_equal true (calculate_money_needed 10.0 0.0 1.0 0.0 = 0.0) );
   ]
 
 let tests = "test suite" >::: test_account @ test_transactions @ test_math
