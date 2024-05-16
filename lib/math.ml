@@ -2,9 +2,6 @@
 
 let () = Random.self_init ()
 
-(* [last_day] is an approximation for the amount of days in a school year *)
-let last_day = 286
-
 (* [sum lst] returns the sum of the values in [lst]*)
 let rec sum (lst : float list) =
   match lst with
