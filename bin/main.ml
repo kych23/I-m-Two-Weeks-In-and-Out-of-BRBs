@@ -41,6 +41,7 @@ let print_menu_art () =
   in
   print_endline art
 
+(** ASCII art for the manage account *)
 let manage_account_art () =
   let art =
     "\n\
@@ -55,6 +56,7 @@ let manage_account_art () =
   in
   print_endline art
 
+(** ASCII art for manage transactions *)
 let manage_transactions_art () =
   let art =
     "\n\
@@ -69,6 +71,7 @@ let manage_transactions_art () =
   in
   print_endline art
 
+(** ASCII art for the spend analyzer *)
 let spend_analyzer_art () =
   let art =
     "\n\
@@ -83,6 +86,7 @@ let spend_analyzer_art () =
   in
   print_endline art
 
+(** ASCII art for the current balance *)
 let current_balance_art () =
   let art =
     "\n\
@@ -97,6 +101,7 @@ let current_balance_art () =
   in
   print_endline art
 
+(** ASCII art for days until broke *)
 let days_until_broke_art () =
   let art =
     "\n\
