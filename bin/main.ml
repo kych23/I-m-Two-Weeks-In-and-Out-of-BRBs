@@ -290,7 +290,14 @@ let rec spend_analyzer username =
         days_until_broke_art ();
         print_endline "How many BRB's did you start out with?";
         let start = read_line () in
-        let res = days_until_broke (float_of_string start) acc_balance 5.0 in
+        print_endline
+          "How many days have passed since you started using BRBs? (Float \
+           please)";
+        let days_passed = read_line () in
+        let res =
+          days_until_broke (float_of_string start) acc_balance
+            (float_of_string days_passed)
+        in
         let message = string_of_float res ^ " days left" in
         print_endline message
       end
