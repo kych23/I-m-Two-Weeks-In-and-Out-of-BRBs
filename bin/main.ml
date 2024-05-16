@@ -3,6 +3,32 @@ open Cs3110_final_project.Account
 open Cs3110_final_project.Transactions
 open Cs3110_final_project.Math
 
+(** ASCII art for the welcome message *)
+let print_welcome_art () =
+  let art =
+    "\n\
+    \ _  _  ____  __     ___  __   _  _  ____    ____  __     ____  ____  \
+     ____  _ ____    ____   __   _  _  __  __ _   ___  ____ \n\
+     / )( \\(  __)(  )   / __)/  \\ ( \\/ )(  __)  (_  _)/  \\   (  _ \\(  _ \
+     \\(  _ \\(// ___)  / ___) / _\\ / )( \\(  )(  ( \\ / __)/ ___)\n\
+     / \\/ \\ ) _) / (_/\\( (__(  O )/ \\/ \\ ) _)     )( (  O )   ) _ ( )   / \
+     ) _ (  \\___ \\  \\___ \\/    \\\\ \\/ / )( /    /( (_ \\___ \\\n\
+     (_/\\_)(____)\\____/ \\___)\\__/ \\_)(_/(____)   (__) \\__/   \
+     (____/(__\\_)(____/  (____/  (____/\\_/\\_/ \\__/ (__)_)__) \\___/(____/\n"
+  in
+  print_endline art
+
+(** ASCII art for the menu *)
+let print_menu_art () =
+  let art =
+    "\n\
+    \ _  _   __   __  __ _    _  _  ____  __ _  _  _ \n\
+     ( \\/ ) / _\\ (  )(  ( \\  ( \\/ )(  __)(  ( \\/ )( \\\n\
+     / \\/ \\/    \\ )( /    /  / \\/ \\ ) _) /    /) \\/ (\n\
+     \\_)(_/_/\\_/(__)\\_)__)  \\_)(_/(____)\\_)__\\____/\n"
+  in
+  print_endline art
+
 (** [user_filepath username] returns filename data/[username].csv *)
 let user_filepath username = "data/" ^ username ^ ".csv"
 
@@ -156,6 +182,7 @@ let spend_analyzer username =
 
 (** [home username] is the function that leads user [username] to the main menu. *)
 let rec home username =
+  print_menu_art ();
   print_endline "What would you like to do?";
   print_endline "1. Manage account";
   print_endline "2. Manage transactions";
@@ -181,7 +208,7 @@ let rec home username =
 (** [start] starts the program and prompts the user to login/create their
     account *)
 let start () =
-  print_endline "Welcome to the BRB Saving System!";
+  print_welcome_art ();
   print_endline
     "Do you want to (1) Login or (2) Create a new account? Enter 1 or 2:";
   match read_line () with

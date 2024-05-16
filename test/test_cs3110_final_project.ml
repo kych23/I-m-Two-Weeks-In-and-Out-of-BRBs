@@ -278,6 +278,7 @@ let test_transactions =
         filter_transactions_by_date transactions "2024-05-16" "2024-05-17"
       in
       assert_equal 2 (List.length date_filtered_txns) );
+    (* Test for creating a transaction file *)
     ( "test_create_new_transaction_file" >:: fun _ ->
       let username = "testuser" in
       create_new_transaction_file username;
