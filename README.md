@@ -24,6 +24,6 @@ dune exec bin/main.exe
 
 ## Authors
 
-Khoa Nguyen (ktn9)
-Kyle Chu (kgc42)
+Khoa Nguyen (ktn9),
+Kyle Chu (kgc42),
 Vail Chen (vac68)
