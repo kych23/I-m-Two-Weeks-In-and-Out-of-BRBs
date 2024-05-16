@@ -159,11 +159,20 @@ let manage_account username =
 
 (** this currently is not working as intended but as a starter it does call some
     functions in math. *)
-let spend_analyzer username =
+let rec spend_analyzer username =
   let options () =
     print_endline "Welcome to your spending analysis";
     print_endline "Here are some insights that you can view:";
     print_endline "1: Days until broke at the rate of spending";
+    print_endline "2: Average BRBs spent";
+    print_endline "3: Choose a random vender or item";
+    print_endline "4: Let us decide if your purchase is wise";
+    print_endline "5: Optimize future spending";
+    print_endline "6: Calculate how much a certain category is costing you";
+    print_endline "7: Calculate how many BRBs are needed to support your habits";
+    print_endline "8: How to allocate your BRBs based on a category of spending";
+    print_endline "9: Analyze whether your spending is consistent";
+    print_endline "10: Calculate how much money you will have remaining";
     let acc_list = load_accounts "data/users.csv" in
     let acc = find_account username acc_list in
     let acc_balance = get_acc_bal acc in
@@ -175,6 +184,131 @@ let spend_analyzer username =
         let res = days_until_broke (float_of_string start) acc_balance 5.0 in
         let message = string_of_float res ^ " days left" in
         print_endline message
+      end
+    | "2" -> begin
+        print_endline
+          "Would you like to know the average BRBs spent by transaction or by \
+           day? Enter 'total' or 'days'";
+        let choice = read_line () in
+        match choice with
+        | "total" -> begin
+            let full_transactions =
+              get_txn_amounts (load_transactions (user_filepath username))
+            in
+            let message =
+              "You spend on average "
+              ^ string_of_float (average_list full_transactions)
+              ^ " Per transaction."
+            in
+            print_endline message
+          end
+        | "days" -> ()
+        | _ -> begin
+            print_endline "Invalid Choice";
+            print_endline "";
+            spend_analyzer username
+          end
+      end
+    | "3" -> begin
+        print_endline
+          "Would you like to choose a random vender (1) or a random item (2)";
+        let choice = read_line () in
+        match choice with
+        | "1" -> begin
+            let vender = get_brb_spot () in
+            print_endline ("You should go to " ^ vender)
+          end
+        | "2" -> begin
+            let item = get_brb_item () in
+            print_endline ("You should get " ^ item)
+          end
+        | _ -> begin
+            print_endline "Invalid Choice";
+            print_endline "";
+            spend_analyzer username
+          end
+      end
+    | "4" -> begin
+        print_endline
+          "Would you like to make a decision in a vaccuum (1) or relative to \
+           your balance (2)?";
+        let choice = read_line () in
+        match choice with
+        | "1" -> begin
+            print_endline
+              "From 0 to 100 inclusive, how badly do you want this item? (No \
+               decimals please)";
+            let choice = read_line () in
+            print_endline
+              ("Our randomizer on if you should buy this item: "
+              ^ string_of_bool (desirability (int_of_string choice)))
+          end
+        | "2" -> begin
+            print_endline
+              "From 0 to 100 inclusive, how badly do you want this item? (No \
+               decimals please)";
+            let desire = read_line () in
+            print_endline
+              "How much does this item cost? Please put in decimal form.";
+            let price = read_line () in
+            print_endline
+              ("Our randomizer on if you should buy this item: "
+              ^ string_of_bool
+                  (desire_relative acc_balance (float_of_string price)
+                     (int_of_string desire)))
+          end
+        | _ -> begin
+            print_endline "Invalid Choice";
+            print_endline "";
+            spend_analyzer username
+          end
+      end
+    | "5" -> begin
+        print_endline
+          "How many days are remaining where you can use BRBs? (Give an \
+           integer please)";
+        let days_remaining = read_line () in
+        let spend_rate =
+          optimize_future_spending acc_balance (float_of_string days_remaining)
+        in
+        print_endline
+          ("You can spend " ^ string_of_float spend_rate ^ "over the next "
+         ^ days_remaining ^ "days")
+      end
+    | "6" -> begin
+        print_endline "What category would you like to calculate?";
+        let category = read_line () in
+        let total_spent =
+          sum_transactions (load_transactions (user_filepath username))
+        in
+        let category_spent =
+          sum_transactions
+            (filter_transactions_by_category
+               (load_transactions (user_filepath username))
+               category)
+        in
+        let percentage =
+          calculate_percentages_category total_spent category_spent
+        in
+        print_endline
+          (string_of_float percentage ^ "% of your transactions are spent on "
+         ^ category)
+      end
+    | "7" -> begin
+        print_endline "How many BRBs did you begin with? (Float Please)";
+        let starting = read_line () in
+        print_endline "How many days have passed? (Float Please)";
+        let days_passed = read_line () in
+        print_endline "How many days are left? (Float please)";
+        let days_remaining = read_line () in
+        let brb_needed =
+          calculate_money_needed (float_of_string starting) acc_balance
+            (float_of_string days_passed)
+            (float_of_string days_remaining)
+        in
+        print_endline
+          ("You need " ^ string_of_float brb_needed
+         ^ "BRBs to support your current spending habits.")
       end
     | _ -> print_endline "Exit"
   in
