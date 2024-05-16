@@ -103,8 +103,10 @@ let days_until_broke starting ending days_passed =
   days_left
 
 let calculate_percentages_category total_spent category_spent =
-  let percentage = category_spent /. total_spent in
-  percentage *. 100.
+  if total_spent = 0. then raise DivideByZero
+  else
+    let percentage = category_spent /. total_spent in
+    percentage *. 100.
 
 let calculate_money_needed starting ending days_passed days_remaining =
   let rate = rate_of_spending starting ending days_passed in
