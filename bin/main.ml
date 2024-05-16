@@ -83,6 +83,35 @@ let spend_analyzer_art () =
   in
   print_endline art
 
+let current_balance_art () =
+  let art =
+    "\n\
+    \  ___  _  _  ____  ____  ____  __ _  ____    ____   __   __     __   __ \
+     _   ___  ____ \n\
+    \ / __)/ )( \\(  _ \\(  _ \\(  __)(  ( \\(_  _)  (  _ \\ / _\\ (  )   / \
+     _\\ (  ( \\ / __)(  __)\n\
+     ( (__ ) \\/ ( )   / )   / ) _) /    /  )(     ) _ (/    \\/ (_/\\/    \
+     \\/    /( (__  ) _) \n\
+    \ \\___)\\____/(__\\_(__\\_)(____)\\_)__) (__)   \
+     (____/\\_/\\_/\\____/\\_/\\_/\\_)__) \\___)(____)\n"
+  in
+  print_endline art
+
+let days_until_broke_art () =
+  let art =
+    "\n\
+    \  ____   __   _  _  ____    _  _  __ _  ____  __  __      ____  ____   \
+     __  __ _  ____ \n\
+    \ (    \\ / _\\ ( \\/ )/ ___)  / )( \\(  ( \\(_  _)(  )(  )    (  _ \\(  _ \
+     \\ /  \\(  / )(  __)\n\
+    \  ) D (/    \\ )  / \\___ \\  ) \\/ (/    /  )(   )( / (_/\\   ) _ ( )   \
+     /(  O ))  (  ) _) \n\
+    \ (____/\\_/\\_/(__/  (____/  \\____/\\_)__) (__) (__/\\____/  \
+     (____/(__\\_) \\__/(__\\_)(____)\n\
+    \ "
+  in
+  print_endline art
+
 (** [user_filepath username] returns filename data/[username].csv *)
 let user_filepath username = "data/" ^ username ^ ".csv"
 
@@ -139,6 +168,7 @@ let manage_transactions username =
         options ()
       end
     | "3" -> begin
+        current_balance_art ();
         let acc_list = ref (load_accounts "data/users.csv") in
         let acc = find_account username !acc_list in
         let balance = acc.balance in
@@ -240,6 +270,7 @@ let rec spend_analyzer username =
     let choice = read_line () in
     match choice with
     | "1" -> begin
+        days_until_broke_art ();
         print_endline "How many BRB's did you start out with?";
         let start = read_line () in
         let res = days_until_broke (float_of_string start) acc_balance 5.0 in
