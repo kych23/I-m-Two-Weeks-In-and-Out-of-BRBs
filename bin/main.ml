@@ -99,11 +99,19 @@ let manage_transactions username =
     print_endline "Enter your choice (1-4): ";
     let choice = read_line () in
     match choice with
-    | "1" -> begin
+    | "1" ->
         print_endline "Enter the date (e.g., YYYY-MM-DD):";
         let date = read_line () in
         print_endline "Enter the amount ($$.¢¢):";
         let amount = read_float () in
+        if
+          amount
+          > get_acc_bal (find_account username (load_accounts "data/users.csv"))
+        then begin
+          print_endline "You do not have enough funds for this transaction";
+          options ()
+        end
+        else ();
         print_endline "Enter the category:";
         let category = read_line () in
         let new_transaction = create_transaction date amount category in
@@ -126,7 +134,6 @@ let manage_transactions username =
          with Failure msg -> print_endline ("Error: " ^ msg));
         save_transactions (user_filepath username) !transactions;
         options ()
-      end
     | "2" -> begin
         let () = view_transactions !transactions in
         options ()

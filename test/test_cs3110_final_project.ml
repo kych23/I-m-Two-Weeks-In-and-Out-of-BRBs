@@ -1,6 +1,7 @@
 open OUnit2
 open Cs3110_final_project.Account
 open Cs3110_final_project.Transactions
+open Cs3110_final_project.Math
 
 (* Function to delete a file *)
 let delete_csv_file file_path =
@@ -335,5 +336,48 @@ let test_transactions =
       assert_bool "File should exist" (Sys.file_exists path) );
   ]
 
-let tests = "test suite" >::: test_account @ test_transactions
+let test_math =
+  [
+    (* -------------------------- TESTS average_list ------------------------ *)
+    ( "average_list : returns average values from list of integers" >:: fun _ ->
+      let lst = [ 1.0; 2.0; 3.0; 4.0; 5.0; 6.0; 7.0 ] in
+      assert_equal true (average_list lst = 4.0) );
+    ( "average_list : returns average values from list of floats" >:: fun _ ->
+      let lst = [ 1.0; 2.5; 5.5; 7.5 ] in
+      assert_equal true (average_list lst = 4.125) );
+    ( "average_list : returns 0 if list is empty" >:: fun _ ->
+      let lst = [] in
+      assert_equal true (average_list lst = 0.) );
+    (* -------------------- TESTS average_over_days_list -------------------- *)
+    ( "average_over_days_list : average from list of integers over 4 days"
+    >:: fun _ ->
+      let lst = [ 1.0; 2.0; 3.0; 4.0; 5.0; 6.0; 7.0 ] in
+      assert_equal true (average_over_days_list lst 4.0 = 7.0) );
+    ( "average_over_days_list : average from list of floats over 5 days"
+    >:: fun _ ->
+      let lst = [ 1.0; 2.5; 5.5; 7.5 ] in
+      assert_equal true (average_over_days_list lst 5. = 3.3) );
+    ( "average_over_days_list : divide by 0 days" >:: fun _ ->
+      let lst = [ 1.0; 2.5; 5.5; 7.5 ] in
+      assert_raises DivideByZero (fun () -> average_over_days_list lst 0.0) );
+    ( "average_over_days_list : returns 0 if list is empty" >:: fun _ ->
+      let lst = [] in
+      assert_equal true (average_over_days_list lst 1.0 = 0.) );
+    (* --------------------- TESTS get_brb_spot ----------------------------- *)
+    ( "get_brb_spot : checks if the random spot is one from the vendor list"
+    >:: fun _ -> assert_equal true (List.mem (get_brb_spot ()) brb_venders) );
+    (* --------------------- TESTS get_brb_item ----------------------------- *)
+    ( "get_brb_item : checks if the random item is one from the food list"
+    >:: fun _ -> assert_equal true (List.mem (get_brb_item ()) brb_items) );
+    (* --------------------- TESTS optimize_future_spending ----------------- *)
+    ( "optimize_future_spending : integers " >:: fun _ ->
+      assert_equal true (optimize_future_spending 100.0 10.0 = 10.0) );
+    ( "optimize_future_spending : floats " >:: fun _ ->
+      assert_equal true (optimize_future_spending 105.0 10.0 = 10.5) );
+    ( "optimize_future_spending : zero " >:: fun _ ->
+      assert_raises DivideByZero (fun () -> optimize_future_spending 105.0 0.)
+    );
+  ]
+
+let tests = "test suite" >::: test_account @ test_transactions @ test_math
 let _ = run_test_tt_main tests

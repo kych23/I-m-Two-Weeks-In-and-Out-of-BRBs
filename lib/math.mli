@@ -1,3 +1,5 @@
+exception DivideByZero
+
 val average_list : float list -> float
 (** [average lst] returns the average value of the entries in [lst] *)
 
