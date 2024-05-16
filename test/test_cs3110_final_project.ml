@@ -1,5 +1,6 @@
 open OUnit2
 open Cs3110_final_project.Account
+open Cs3110_final_project.Transactions
 
 (* open Cs3110_final_project.Transaction *)
 
@@ -168,7 +169,50 @@ let test_account =
   ]
 
 let test_transactions =
-  [ (* ( "test_insert with random tree" >:: fun _ -> ); *) ]
+  [
+    (* Test for creating a transaction *)
+    ( "create_transaction" >:: fun _ ->
+      let txn = create_transaction "2024-05-16" 100.0 "Food" in
+      assert_equal (get_txn_date txn) "2024-05-16";
+      assert_equal (get_txn_amt txn) 100.0;
+      assert_equal (get_txn_category txn) "Food" );
+    (* Test for adding a transaction *)
+    ( "add_transaction" >:: fun _ ->
+      let txn1 = create_transaction "2024-05-16" 100.0 "Food" in
+      let txn2 = create_transaction "2024-05-17" 200.0 "Transport" in
+      let transactions = add_transaction txn1 [] in
+      let transactions = add_transaction txn2 transactions in
+      assert_equal 2 (List.length transactions);
+      assert_equal "2024-05-17" (get_txn_date (List.hd transactions)) );
+    (* Test for summing transactions *)
+    ( "sum_transactions" >:: fun _ ->
+      let txn1 = create_transaction "2024-05-16" 100.0 "Food" in
+      let txn2 = create_transaction "2024-05-17" 200.0 "Transport" in
+      let transactions = [ txn1; txn2 ] in
+      assert_equal 300.0 (sum_transactions transactions) );
+    (* Test for filtering transactions by category *)
+    ( "filter_transactions_by_category" >:: fun _ ->
+      let txn1 = create_transaction "2024-05-16" 100.0 "Food" in
+      let txn2 = create_transaction "2024-05-17" 200.0 "Transport" in
+      let transactions = [ txn1; txn2 ] in
+      let food_txns = filter_transactions_by_category transactions "Food" in
+      assert_equal 1 (List.length food_txns);
+      assert_equal "Food" (get_txn_category (List.hd food_txns)) );
+    (* Test for filtering transactions by date *)
+    ( "filter_transactions_by_date" >:: fun _ ->
+      let txn1 = create_transaction "2024-05-16" 100.0 "Food" in
+      let txn2 = create_transaction "2024-05-17" 200.0 "Transport" in
+      let transactions = [ txn1; txn2 ] in
+      let date_filtered_txns =
+        filter_transactions_by_date transactions "2024-05-16" "2024-05-17"
+      in
+      assert_equal 2 (List.length date_filtered_txns) );
+    ( "test_create_new_transaction_file" >:: fun _ ->
+      let username = "testuser" in
+      create_new_transaction_file username;
+      let path = Filename.concat "data" (username ^ ".csv") in
+      assert_bool "File should exist" (Sys.file_exists path) );
+  ]
 
 let tests = "test suite" >::: test_account @ test_transactions
 let _ = run_test_tt_main tests
