@@ -2,6 +2,7 @@ To run the program, install OCaml. If you do not have OCaml installed,
 follow this link https://cs3110.github.io/textbook/chapters/preface/install.html. 
 If you do not have CSV installed on your local machine, then in the terminal run 
 opam install csv. If you do not have OUnit2 installed on your local machine, then
-in the terminal run opam install ounit2 To install the file, unzip the zip file. 
+in the terminal run opam install ounit2. To install the file, unzip the zip file. 
 Then using the terminal, change directories into cs3110_final_project, and run
-dune build. Then to run the file, run dune exec bin/main.exe
+dune build. Then to run the file, run dune exec bin/main.exe. If you want to run
+the tests, run dune test.
