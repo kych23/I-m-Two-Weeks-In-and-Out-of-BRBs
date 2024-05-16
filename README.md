@@ -12,7 +12,7 @@ Our project is a comprehensive tool that helps users manage their BRB finances
 ### Dependencies
 
 ```
-* opam install csv
+opam install csv
 ```
 
 ### Executing program
