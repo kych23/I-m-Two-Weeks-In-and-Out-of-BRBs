@@ -55,7 +55,7 @@ val get_acc_txns_file : account -> string
 
 val add_funds : account -> float -> account
 (** [add_funds account extra] is the account [account] with an updated balance
-    with [extra] added to the current balance *)
+    with [extra] added to the current balance. Invariant: [account] must exist *)
 
 val change_password : account -> string -> account
 (** [change_password account new_pw] is the [account] with a new password which
