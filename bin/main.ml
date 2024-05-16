@@ -18,6 +18,18 @@ let print_welcome_art () =
   in
   print_endline art
 
+(** ASCII art for goodbye message *)
+let print_goodbye_art () =
+  let art =
+    "\n\
+    \    ___   __    __  ____  ____  _  _  ____ \n\
+    \   / __) /  \\  /  \\(    \\(  _ \\( \\/ )(  __)\n\
+    \  / (_ \\(  O )(  O )) D ( ) _ ( )  /  ) _) \n\
+    \   \\___/ \\__/  \\__/(____/(____/(__/  (____)\n\
+    \  "
+  in
+  print_endline art
+
 (** ASCII art for the menu *)
 let print_menu_art () =
   let art =
@@ -26,6 +38,48 @@ let print_menu_art () =
      ( \\/ ) / _\\ (  )(  ( \\  ( \\/ )(  __)(  ( \\/ )( \\\n\
      / \\/ \\/    \\ )( /    /  / \\/ \\ ) _) /    /) \\/ (\n\
      \\_)(_/_/\\_/(__)\\_)__)  \\_)(_/(____)\\_)__\\____/\n"
+  in
+  print_endline art
+
+let manage_account_art () =
+  let art =
+    "\n\
+    \ _  _   __   __ _   __    ___  ____     __    ___  ___  __   _  _  __ _  \
+     ____ \n\
+     ( \\/ ) / _\\ (  ( \\ / _\\  / __)(  __)   / _\\  / __)/ __)/  \\ / )( \
+     \\(  ( \\(_  _)\n\
+     / \\/ \\/    \\/    //    \\( (_ \\ ) _)   /    \\( (__( (__(  O )) \\/ \
+     (/    /  )(  \n\
+     \\_)(_/_/\\_/\\_)__)/_\\_/\\_/ \\___/(____)  \\_/\\_/ \\___)\\___)\\__/ \
+     \\____/\\_)__) (__) \n"
+  in
+  print_endline art
+
+let manage_transactions_art () =
+  let art =
+    "\n\
+    \ _  _   __   __ _   __    ___  ____    ____  ____   __   __ _  ____   \
+     __    ___  ____  __  __   __ _  ____ \n\
+     ( \\/ ) / _\\ (  ( \\ / _\\  / __)(  __)  (_  _)(  _ \\ / _\\ (  ( \\/ \
+     ___) / _\\  / __)(_  _)(  )/  \\ (  ( \\/ ___)\n\
+     / \\/ \\/    \\/    //    \\( (_ \\ ) _)     )(   )   //    \\/    /\\___ \
+     \\/    \\( (__   )(   )((  O )/    /\\___ \\\n\
+     \\_)(_/_/\\_/\\_)__)/_\\_/\\_/ \\___/(____)   (__) \
+     (__\\_)\\_\\_/\\_)__)(____/\\_\\_/ \\___) (__) (__)/\\__/ \\_)__)(____/\n"
+  in
+  print_endline art
+
+let spend_analyzer_art () =
+  let art =
+    "\n\
+    \ ____  ____  ____  __ _  ____     __   __ _   __   __    _  _  ____  \
+     ____  ____ \n\
+     / ___)(  _ \\(  __)(  ( \\(    \\   / _\\ (  ( \\ / _\\ (  )  ( \\/ )(__  \
+     )(  __)(  _ \\\n\
+     \\___ \\ ) __/ ) _) /    / ) D (  /    \\/    //    \\/ (_/\\ )  /  / _/  \
+     ) _)  )   /\n\
+     (____/(__)  (____)\\_)__)(____/  \\_/\\_/\\_)__)\\_/\\_/\\____/(__/  \
+     (____)(____)(__\\_)\n"
   in
   print_endline art
 
@@ -325,18 +379,21 @@ let rec home username =
   let choice = read_line () in
   match choice with
   | "1" -> begin
+      manage_account_art ();
       manage_account username;
       home username
     end
   | "2" -> begin
+      manage_transactions_art ();
       manage_transactions username;
       home username
     end
   | "3" -> begin
+      spend_analyzer_art ();
       spend_analyzer username;
       home username
     end
-  | "4" -> print_endline "Goodbye"
+  | "4" -> print_goodbye_art ()
   | _ -> print_endline "Log in again and choose 1, 2, or 3"
 
 (** [start] starts the program and prompts the user to login/create their
