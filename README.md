@@ -7,7 +7,7 @@
 Our project is a comprehensive tool that helps users manage their BRB finances
   with a simple and intuitive interface through the terminal. The program will 
   offer features such as viewing transaction history, adding cash, and 
-  displaying more specific statistics about the user's transations. 
+  displaying more specific statistics about the user's transactions. 
   
 ### Dependencies
 
